@@ -1,1 +1,0 @@
-# ustalar-tasimacilik
