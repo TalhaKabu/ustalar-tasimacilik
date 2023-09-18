@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+// @import "primeng/resources/themes/mira/theme.css";
+// @import "primeng/resources/primeng.css";
+// @import "primeicons/primeicons.css";
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}

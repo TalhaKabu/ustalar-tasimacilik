@@ -1,0 +1,43 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      (click)="sidebarVisible = !sidebarVisible"
+    >
+      <mat-icon>{{ sidebarVisible ? "close" : "menu" }} </mat-icon>
+    </button>
+    <span class="example-spacer"></span>
+    <span>My App</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="sidebarVisible" mode="side">
+    <mat-list>
+      <mat-list-item role="listitem">
+        <button
+          mat-button
+          routerLink="/"
+          (click)="sidebarVisible = !sidebarVisible"
+          class="list-button"
+        >
+          <mat-icon>home</mat-icon>Anasayfa
+        </button>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <button
+          mat-button
+          routerLink="/"
+          (click)="sidebarVisible = !sidebarVisible"
+          class="list-button"
+        >
+          <mat-icon>anchor</mat-icon>İletişim
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

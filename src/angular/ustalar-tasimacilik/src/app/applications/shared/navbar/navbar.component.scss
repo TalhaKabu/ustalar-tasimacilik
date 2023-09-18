@@ -1,0 +1,21 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 300px;
+  background-color: yellow;
+}
+
+.list-button {
+  width: 100%;
+}
+
+.list-button:hover {
+  border: 1px solid black;
+  border-radius: 5px;
+}
