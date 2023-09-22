@@ -1,0 +1,46 @@
+mat-grid-tile {
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.icon-inside-grid {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  height: 50px;
+  text-align: center;
+}
+
+.text-inside-header {
+  position: absolute;
+  top: 55px;
+  left: 80px;
+  right: 80px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.text-inside-body {
+  position: absolute;
+  top: 120px;
+  left: 40px;
+  right: 40px;
+  font-size: 12px;
+  text-align: center;
+}
+
+mat-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.material-symbols {
+  font-size: 50px;
+  font-variation-settings: "FILL" 1, "wght" 100, "GRAD" -25, "opsz" 48;
+}
+
+h1,
+h3 {
+  margin: 0;
+}

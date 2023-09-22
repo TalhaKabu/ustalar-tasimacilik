@@ -9,11 +9,11 @@
       <mat-icon>{{ sidebarVisible ? "close" : "menu" }} </mat-icon>
     </button>
     <span class="example-spacer"></span>
-    <span>My App</span>
+    <span mat-card-title>Ustalar Taşımacılık</span>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav [(opened)]="sidebarVisible" mode="side">
+  <mat-sidenav [(opened)]="sidebarVisible" mode="over">
     <mat-list>
       <mat-list-item role="listitem">
         <button
@@ -26,11 +26,11 @@
           <mat-icon>home</mat-icon>Anasayfa
         </button>
       </mat-list-item>
-      <mat-list-item role="listitem" >
+      <mat-list-item role="listitem">
         <button
           mat-button
           color="accent"
-          routerLink="/"
+          routerLink="/contact"
           (click)="sidebarVisible = !sidebarVisible"
           class="list-button"
         >
@@ -39,7 +39,9 @@
       </mat-list-item>
     </mat-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content
+    style="padding: 2rem; background-color: rgb(220, 243, 220)"
+  >
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

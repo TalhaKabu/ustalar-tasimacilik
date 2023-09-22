@@ -2,6 +2,10 @@
   flex: 1 1 auto;
 }
 
+mat-toolbar {
+  border-bottom: 1px solid;
+}
+
 mat-sidenav-container {
   height: 100%;
 }
