@@ -1,5 +1,6 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,6 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  items: MenuItem[] | undefined;
   sidebarVisible: boolean = false;
 
   @HostBinding('style.--toolbarHeight')
@@ -18,21 +18,34 @@ export class NavbarComponent {
   @Input()
   windowHeight: string = '0px';
 
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    // Register the WhatsApp icon
+    this.matIconRegistry.addSvgIcon(
+      'whatsapp-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/whatsapp.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'instagram-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/instagram.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'facebook-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/facebook.svg'
+      )
+    );
+  }
+
   ngOnInit(): void {
     this.windowHeight = window.innerHeight + 'px';
-    this.items = [
-      {
-        label: 'Anasayfa',
-        icon: 'pi pi-home',
-      },
-      {
-        label: 'Hakkımızda',
-        icon: 'pi pi-info-circle',
-      },
-      {
-        label: 'İletişim',
-        icon: 'pi pi-phone',
-      },
-    ];
   }
 }
