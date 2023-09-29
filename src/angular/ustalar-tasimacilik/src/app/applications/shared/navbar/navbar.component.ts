@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -10,7 +10,16 @@ export class NavbarComponent {
   items: MenuItem[] | undefined;
   sidebarVisible: boolean = false;
 
+  @HostBinding('style.--toolbarHeight')
+  @Input()
+  toolbarHeight: string = '70px';
+
+  @HostBinding('style.--windowHeight')
+  @Input()
+  windowHeight: string = '0px';
+
   ngOnInit(): void {
+    this.windowHeight = window.innerHeight + 'px';
     this.items = [
       {
         label: 'Anasayfa',

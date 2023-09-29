@@ -1,7 +1,4 @@
-mat-grid-tile {
-  border: 1px solid;
-  border-radius: 5px;
-}
+@import "/src/theme";
 
 .icon-inside-grid {
   position: absolute;
@@ -19,6 +16,7 @@ mat-grid-tile {
   right: 80px;
   font-size: 12px;
   text-align: center;
+  color: black;
 }
 
 .text-inside-body {
@@ -33,6 +31,7 @@ mat-grid-tile {
 mat-icon {
   height: 50px;
   width: 50px;
+  color: map_get($custom-warn, 700);
 }
 
 .material-symbols {
@@ -43,4 +42,11 @@ mat-icon {
 h1,
 h3 {
   margin: 0;
+}
+
+mat-grid-tile {
+  border: 1px solid map-get($custom-primary, 200);
+  border-radius: 5px;
+  background-color: map-get($custom-primary, 100);
+  color: #333;
 }

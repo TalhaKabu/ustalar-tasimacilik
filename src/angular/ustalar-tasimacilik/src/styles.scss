@@ -1,5 +1,8 @@
+// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@use "theme";
+
 body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   margin: 0;
   padding: 0;
 }

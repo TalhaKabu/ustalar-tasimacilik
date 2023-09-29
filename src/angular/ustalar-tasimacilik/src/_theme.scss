@@ -1,25 +1,21 @@
-@use "palette";
-
 @use "@angular/material" as mat;
+@use "/src/palette" as palette;
 
-@include mat.core();
+// Define your custom color palette
+$custom-primary: mat.define-palette(palette.$black-palette, 800);
+$custom-accent: mat.define-palette(palette.$orange-palette, 400, 500, 600);
+$custom-warn: mat.define-palette(palette.$green-palette, 500);
 
-$my-primary: mat.define-palette(palette.$my-palette, 300);
-$my-accent: mat.define-palette(mat.$purple-palette, 200, 300, 400);
-$my-warn: mat.define-palette(mat.$red-palette);
-
-$my-grey: mat.define-palette(mat.$grey-palette, 200, 300, 400);
-
-$my-theme: mat.define-light-theme(
+// Create the theme
+$custom-theme: mat.define-light-theme(
   (
     color: (
-      primary: $my-primary,
-      accent: $my-accent,
-      warn: $my-warn,
+      primary: $custom-primary,
+      accent: $custom-accent,
+      warn: $custom-warn,
     ),
-    typography: mat.define-typography-config(),
-    density: 0,
   )
 );
 
-@include mat.all-component-themes($my-theme);
+// Include the custom theme
+@include mat.all-component-themes($custom-theme);

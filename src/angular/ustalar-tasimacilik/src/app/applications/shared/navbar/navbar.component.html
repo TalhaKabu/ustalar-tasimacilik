@@ -1,24 +1,25 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button
-      mat-icon-button
-      class="example-icon"
-      color="accent"
-      (click)="sidebarVisible = !sidebarVisible"
-    >
+    <span mat-card-title>Ustalar Taşımacılık</span>
+    <button mat-icon-button (click)="sidebarVisible = !sidebarVisible">
       <mat-icon>{{ sidebarVisible ? "close" : "menu" }} </mat-icon>
     </button>
     <span class="example-spacer"></span>
-    <span mat-card-title>Ustalar Taşımacılık</span>
+    <button mat-button class="offer-button">
+      <mat-icon>edit</mat-icon>TEKLİF AL
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav [(opened)]="sidebarVisible" mode="over">
+  <mat-sidenav
+    [(opened)]="sidebarVisible"
+    mode="over"
+    [autoFocus]="false"
+  >
     <mat-list>
       <mat-list-item role="listitem">
         <button
           mat-button
-          color="accent"
           routerLink="/"
           (click)="sidebarVisible = !sidebarVisible"
           class="list-button"
@@ -29,19 +30,40 @@
       <mat-list-item role="listitem">
         <button
           mat-button
-          color="accent"
           routerLink="/contact"
           (click)="sidebarVisible = !sidebarVisible"
           class="list-button"
         >
-          <mat-icon>anchor</mat-icon>İletişim
+          <mat-icon>contact_page</mat-icon>İletişim
+        </button>
+      </mat-list-item>
+      <div style="flex-grow: 1"></div>
+      <mat-list-item>
+        <button
+          mat-icon-button
+          (click)="sidebarVisible = !sidebarVisible"
+          class="list-icon-button"
+        >
+          <mat-icon>phone</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          (click)="sidebarVisible = !sidebarVisible"
+          class="list-icon-button"
+        >
+          <mat-icon>phone</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          (click)="sidebarVisible = !sidebarVisible"
+          class="list-icon-button"
+        >
+          <mat-icon>phone</mat-icon>
         </button>
       </mat-list-item>
     </mat-list>
   </mat-sidenav>
-  <mat-sidenav-content
-    style="padding: 2rem; background-color: rgb(220, 243, 220)"
-  >
+  <mat-sidenav-content style="padding: 2rem">
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
