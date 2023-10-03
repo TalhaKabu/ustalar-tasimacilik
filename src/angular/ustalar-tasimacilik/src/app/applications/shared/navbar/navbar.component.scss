@@ -62,3 +62,11 @@ mat-list-item {
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.custom-icon {
+  background-image: url('../../../../assets/pngs/logo.png'); /* Adjust the path to your PNG icon */
+  background-size: contain; /* Adjust as needed */
+  width: 75px; /* Set the width and height to match your icon size */
+  height: 75px;
+  display: inline-block;
+}
