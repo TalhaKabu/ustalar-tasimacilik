@@ -1,6 +1,39 @@
 @import "/src/theme";
 
-.icon-inside-grid {
+//#region Skill
+.skill-grid-list-container {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); /* Adjust the number of columns as needed */
+  grid-gap: 20px; /* Adjust the gap between items as needed */
+}
+
+/* Define the grid items */
+.skill-grid-item-container {
+  position: relative;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  height: 200px;
+}
+
+/* Define styles for specific items if needed */
+.skill-grid-item-container:nth-child(odd) {
+  background-color: #e0e0e0;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .skill-grid-list-container {
+    grid-template-columns: repeat(1, 1fr); /* Adjust for smaller screens */
+  }
+}
+
+.skill-icon {
   position: absolute;
   top: 5px;
   left: 0;
@@ -9,53 +42,106 @@
   text-align: center;
 }
 
-.text-inside-header {
+.skill-header {
   position: absolute;
-  top: 55px;
-  left: 80px;
-  right: 80px;
-  font-size: 12px;
-  text-align: center;
+  left: -20px;
+  top: 80px;
+  font-size: 14px;
   color: black;
+  background-color: map_get($custom-accent, 500);
 }
 
-.text-inside-body {
+.skill-body {
   position: absolute;
   top: 120px;
   left: 40px;
   right: 40px;
-  font-size: 12px;
+  font-size: 15px;
   text-align: center;
+  color: map_get($custom-primary, 600);
 }
 
 mat-icon {
-  height: 50px;
-  width: 50px;
+  height: 65px;
+  width: 65px;
   color: map_get($custom-warn, 700);
 }
 
 .material-symbols {
-  font-size: 50px;
+  font-size: 65px;
   font-variation-settings: "FILL" 1, "wght" 100, "GRAD" -25, "opsz" 48;
 }
 
-h1,
-h3 {
+h1 {
   margin: 0;
 }
+//#endregion
 
-mat-grid-tile {
-  border: 1px solid map-get($custom-primary, 200);
-  border-radius: 5px;
-  background-color: map-get($custom-primary, 100);
-  color: #333;
+//#region Services
+.service-grid-list-container {
+  display: grid;
+  margin-top: 30px;
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); /* Adjust the number of columns as needed */
+  grid-gap: 20px; /* Adjust the gap between items as needed */
 }
 
-// .transportation-car {
-//   width: 100%; /* Set the width of the div */
-//   height: 100%; /* Set the height of the div */
-//   background-image: url("../../../../assets/jpgs/transportation-car.jpg"); /* Specify the image URL */
-//   background-size: cover; /* Adjust to your preferred size (cover, contain, etc.) */
-//   background-repeat: no-repeat; /* Prevent the background image from repeating */
-//   background-position: 50% 80%;
-// }
+/* Define the grid items */
+.service-grid-item-container {
+  position: relative;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  height: 300px;
+}
+
+/* Define styles for specific items if needed */
+.service-grid-item-container:nth-child(odd) {
+  background-color: #e0e0e0;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .service-grid-list-container {
+    grid-template-columns: repeat(1, 1fr); /* Adjust for smaller screens */
+  }
+}
+
+.services-header {
+  position: absolute;
+  top: 20px;
+  left: auto;
+  right: auto;
+  color: black;
+}
+
+.services-body {
+  position: absolute;
+  top: 80px;
+  left: 25px;
+  right: 25px;
+  text-align: justify;
+  color: map_get($custom-primary, 600);
+}
+
+.service-button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}
+
+.information-button {
+  width: 100%;
+  background-color: map_get($custom-warn, 500);
+  color: white;
+}
+
+.information-icon {
+  color: white !important;
+}
+//#endregion

@@ -1,48 +1,31 @@
-<mat-grid-list cols="1" rowHeight="2:1" gutterSize="10px">
-  <mat-grid-tile colspan="1" class="">
-    <div class="transportation-car">
-      <!-- <div class="icon-inside-grid">
-        <mat-icon class="material-symbols"> local_shipping </mat-icon>
-      </div> -->
-      <div class="text-inside-grid text-inside-header">
-        <h1>NAKLİYE ARAÇLARI</h1>
+<div>
+  <div class="skill-grid-list-container">
+    <div class="skill-grid-item-container" *ngFor="let item of skillItems">
+      <div class="skill-icon">
+        <mat-icon class="material-symbols"> {{ item.image }} </mat-icon>
       </div>
-      <div class="text-inside-grid text-inside-body">
-        <h3>Özel tasarlanmış farklı boyutlarda taşıma araçlarımız</h3>
+      <div class="skill-header">
+        <h1>{{ item.header }}</h1>
+      </div>
+      <div class="skill-body">
+        <p>{{ item.body }}</p>
       </div>
     </div>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1">
-    <div class="icon-inside-grid">
-      <mat-icon class="material-symbols">inventory_2</mat-icon>
+  </div>
+  <div class="service-grid-list-container">
+    <div class="service-grid-item-container" *ngFor="let item of servicesItems">
+      <h2 class="services-header">{{ item.header }}</h2>
+      <div class="services-body">
+        <p>
+          {{ item.body }}
+        </p>
+      </div>
+      <div class="service-button">
+        <button mat-button class="information-button">
+          Detaylı Bilgi İçin
+          <mat-icon class="information-icon">double_arrow</mat-icon>
+        </button>
+      </div>
     </div>
-    <div class="text-inside-grid text-inside-header">
-      <h1>EŞYA PAKETLEME</h1>
-    </div>
-    <div class="text-inside-grid text-inside-body">
-      <h3>Kaliteli malzemelerle her eşyaya uygun ambalaj ve paketleme</h3>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1">
-    <div class="icon-inside-grid">
-      <mat-icon class="material-symbols">groups</mat-icon>
-    </div>
-    <div class="text-inside-grid text-inside-header">
-      <h1>TECRÜBELİ PERSONEL</h1>
-    </div>
-    <div class="text-inside-grid text-inside-body">
-      <h3>Kaliteli malzemelerle her eşyaya uygun ambalaj ve paketleme</h3>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1">
-    <div class="icon-inside-grid">
-      <mat-icon class="material-symbols">admin_panel_settings</mat-icon>
-    </div>
-    <div class="text-inside-grid text-inside-header">
-      <h1>SİGORTALI TAŞIMACILIK</h1>
-    </div>
-    <div class="text-inside-grid text-inside-body">
-      <h3>Kaliteli malzemelerle her eşyaya uygun ambalaj ve paketleme</h3>
-    </div>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div>

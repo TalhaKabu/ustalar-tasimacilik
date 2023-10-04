@@ -8,6 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -25,6 +26,7 @@ import { ContactComponent } from './components/contact/contact.component';
     MatGridListModule,
     MatDividerModule,
     MatCardModule,
+    CommonModule,
   ],
   exports: [NavbarComponent],
   providers: [],
