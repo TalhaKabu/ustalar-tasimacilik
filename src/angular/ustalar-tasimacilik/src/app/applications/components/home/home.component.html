@@ -10,7 +10,7 @@
   <div class="skill-grid-list-container">
     <div class="skill-grid-item-container" *ngFor="let item of skillItems">
       <div class="skill-icon">
-        <mat-icon class="material-symbols"> {{ item.image }} </mat-icon>
+        <mat-icon class="material-symbols" [svgIcon]="item.image"> </mat-icon>
       </div>
       <div class="skill-header-background"></div>
       <div class="skill-header">

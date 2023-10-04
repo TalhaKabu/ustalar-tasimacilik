@@ -41,7 +41,7 @@ $skill-icon-size: 65px;
 mat-icon {
   height: $skill-icon-size;
   width: $skill-icon-size;
-  color: map_get($custom-warn, 700);
+  color: map_get($custom-warn, 700) !important;
 }
 
 .material-symbols {

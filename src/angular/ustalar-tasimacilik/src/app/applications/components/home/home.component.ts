@@ -1,5 +1,7 @@
 import { Component, HostBinding, Input } from '@angular/core';
 import { ItemDto } from './home';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +27,11 @@ export class HomeComponent {
   servicesItems: ItemDto[] = [];
   skillItems: ItemDto[] = [];
 
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {}
+
   ngOnInit(): void {
     if (window.innerWidth > 1920) this.windowWidth = 1920 + 'px';
     else this.windowWidth = window.innerWidth + 'px';
@@ -39,6 +46,35 @@ export class HomeComponent {
         this.transportationTypes[this.lastTransportationTypeId];
     }, 3000);
 
+    this.matIconRegistry.addSvgIcon(
+      'truck-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/truck_icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'package_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/package_icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'persons_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/persons_icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'insurance_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/insurance_icon.svg'
+      )
+    );
+
+
     this.servicesItems.push({
       header: 'Evden Eve Nakliyat',
       body:
@@ -52,22 +88,22 @@ export class HomeComponent {
       {
         header: 'NAKLİYE ARAÇLARI',
         body: 'Özel tasarlanmış farklı boyutlarda taşıma araçlarımız',
-        image: 'local_shipping',
+        image: 'truck-icon',
       },
       {
         header: 'EŞYA PAKETLEME',
         body: 'Kaliteli malzemelerle her eşyaya uygun ambalaj ve paketleme',
-        image: 'inventory_2',
+        image: 'package_icon',
       },
       {
         header: 'TECRÜBELİ PERSONEL',
-        body: 'Kaliteli malzemelerle her eşyaya uygun ambalaj ve paketleme',
-        image: 'groups',
+        body: 'Uzun yıllar nakliye sektöründe hizmet etmiş profesyonel ekip',
+        image: 'persons_icon',
       },
       {
         header: 'SİGORTALI TAŞIMACILIK',
-        body: 'Kaliteli malzemelerle her eşyaya uygun ambalaj ve paketleme',
-        image: 'admin_panel_settings',
+        body: 'Taşıma işlemi öncesinde tüm eşyalarınız sigortalanarak taşınır',
+        image: 'insurance_icon',
       }
     );
   }
