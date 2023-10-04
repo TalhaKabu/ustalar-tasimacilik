@@ -7,10 +7,38 @@ import { ItemDto } from './home';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  transportationType: string = 'Evden Eve';
+  transportationTypes: string[] = [
+    'Evden Eve',
+    'Şehirler Arası',
+    'Şehir İçi',
+    'Parçalı',
+    'Asansörlü',
+  ];
+  lastTransportationTypeId: number = 0;
+  private intervalId: any;
+
+  @HostBinding('style.--windowWidth')
+  @Input()
+  windowWidth: string = '0 px';
+
   servicesItems: ItemDto[] = [];
   skillItems: ItemDto[] = [];
 
   ngOnInit(): void {
+    if (window.innerWidth > 1920) this.windowWidth = 1920 + 'px';
+    else this.windowWidth = window.innerWidth + 'px';
+
+    this.intervalId = setInterval(() => {
+      if (this.lastTransportationTypeId + 1 < this.transportationTypes.length) {
+        this.lastTransportationTypeId++;
+      } else {
+        this.lastTransportationTypeId = 0;
+      }
+      this.transportationType =
+        this.transportationTypes[this.lastTransportationTypeId];
+    }, 3000);
+
     this.servicesItems.push({
       header: 'Evden Eve Nakliyat',
       body:
@@ -40,7 +68,7 @@ export class HomeComponent {
         header: 'SİGORTALI TAŞIMACILIK',
         body: 'Kaliteli malzemelerle her eşyaya uygun ambalaj ve paketleme',
         image: 'admin_panel_settings',
-      } 
+      }
     );
   }
 }

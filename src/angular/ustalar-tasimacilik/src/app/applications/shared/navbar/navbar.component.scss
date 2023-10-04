@@ -8,13 +8,21 @@ mat-toolbar {
   top: 0;
   height: var(--toolbarHeight);
   justify-content: center;
+  background-color: map_get($custom-primary, 800);
+  color: map_get($custom-primary, 50);
 }
 
 mat-sidenav-container {
-  color: map_get($custom-accent, 300);
-  background-color: whitesmoke;
+  // color: map_get($custom-accent, 300);
+  background-color: white;
   top: var(--toolbarHeight);
   min-height: 100vh;
+}
+
+mat-sidenav-content {
+  max-width: 1920px;
+  position: relative;
+  margin: 0 auto;
 }
 
 mat-sidenav {
@@ -56,7 +64,7 @@ mat-list-item {
 
 .offer-button {
   background-color: map-get($custom-accent, 600);
-  color: white !important;
+  color: map_get($custom-primary, 900) !important;
 }
 
 .example-spacer {
@@ -64,9 +72,17 @@ mat-list-item {
 }
 
 .custom-icon {
-  background-image: url('../../../../assets/pngs/logo.png'); /* Adjust the path to your PNG icon */
+  background-image: url("../../../../assets/pngs/logo.png"); /* Adjust the path to your PNG icon */
   background-size: contain; /* Adjust as needed */
   width: 75px; /* Set the width and height to match your icon size */
   height: 75px;
   display: inline-block;
+}
+
+.menu-button {
+  transition: transform 3s ease-in-out;
+}
+
+.menu-button:hover {
+  transform: scale(1.2);
 }

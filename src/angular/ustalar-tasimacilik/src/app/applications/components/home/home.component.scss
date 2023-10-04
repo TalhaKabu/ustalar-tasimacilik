@@ -145,3 +145,56 @@ h1 {
   color: white !important;
 }
 //#endregion
+
+.header-text-container {
+  position: relative;
+  z-index: 3;
+  color: black;
+  text-align: center;
+  height: calc(3072 * var(--windowWidth) / 4608 - 2rem);
+  margin-bottom: 30px;
+  font-size: 20px;
+
+  @media screen and (min-width: 1080px) {
+    font-size: 90px;
+  }
+}
+
+.transportationType {
+  color: map_get($custom-accent, 500);
+  font-size: 50px;
+
+  @media screen and (min-width: 1080px) {
+    font-size: 125px;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Apply the animation to a text element */
+.text-animation {
+  animation: fade 3s ease-in-out infinite;
+}
+
+.transportation-truck {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)),
+    url("../../../../assets/jpgs/transportation-truck.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; /* Prevents image repetition */
+  width: var(--windowWidth);
+  height: calc(3072 * var(--windowWidth) / 4608 + 1px);
+  /* Add more styling as needed */
+}
