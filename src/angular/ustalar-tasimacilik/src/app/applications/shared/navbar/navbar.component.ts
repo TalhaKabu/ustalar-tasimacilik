@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, Host, HostBinding, Input } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -9,6 +9,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class NavbarComponent {
   sidebarVisible: boolean = false;
+  @HostBinding('style.--fixedWhatsappDisplay')
+  @Input()
+  fixedWhatsappDisplay: string = 'inline-block';
 
   @HostBinding('style.--toolbarHeight')
   @Input()
@@ -43,9 +46,22 @@ export class NavbarComponent {
         'assets/svgs/facebook.svg'
       )
     );
+
+    this.matIconRegistry.addSvgIcon(
+      'fixed-whatsapp-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/fixed-whatsapp-icon.svg'
+      )
+    );
   }
 
   ngOnInit(): void {
     this.windowHeight = window.innerHeight + 'px';
+  }
+
+  onOpenedChange() {
+    this.fixedWhatsappDisplay = this.sidebarVisible
+      ? 'none'
+      : 'inline-block';
   }
 }

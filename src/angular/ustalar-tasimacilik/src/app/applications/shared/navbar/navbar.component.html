@@ -1,7 +1,6 @@
-<mat-toolbar >
+<mat-toolbar>
   <mat-toolbar-row>
     <!-- <mat-icon class="custom-icon"></mat-icon> -->
-    <span mat-card-title>Ustalar Taşımacılık</span>
     <button
       class="menu-button"
       mat-icon-button
@@ -10,13 +9,19 @@
       <mat-icon>{{ sidebarVisible ? "close" : "menu" }} </mat-icon>
     </button>
     <span class="example-spacer"></span>
-    <button mat-button class="offer-button">
+    <!-- <button mat-button class="offer-button">
       <mat-icon>edit</mat-icon>TEKLİF AL
-    </button>
+    </button> -->
+    <span mat-card-title>Ustalar Taşımacılık</span>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav [(opened)]="sidebarVisible" mode="over" [autoFocus]="false">
+  <mat-sidenav
+    [(opened)]="sidebarVisible"
+    (openedChange)="onOpenedChange()"
+    mode="over"
+    [autoFocus]="false"
+  >
     <mat-list>
       <mat-list-item role="listitem">
         <button
@@ -65,6 +70,10 @@
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
+    <mat-icon
+      class="fixed-icon"
+      svgIcon="fixed-whatsapp-icon"
+    ></mat-icon>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
