@@ -1,6 +1,9 @@
 @import "/src/theme";
 
 //#region Skill
+
+$skill-grid-item-container-height: 200px;
+
 .skill-grid-list-container {
   display: grid;
   grid-template-columns: repeat(
@@ -18,7 +21,7 @@
   padding: 20px;
   text-align: center;
   font-size: 18px;
-  height: 200px;
+  height: $skill-grid-item-container-height;
 }
 
 /* Define styles for specific items if needed */
@@ -33,43 +36,57 @@
   }
 }
 
+$skill-icon-size: 65px;
+
+mat-icon {
+  height: $skill-icon-size;
+  width: $skill-icon-size;
+  color: map_get($custom-warn, 700);
+}
+
+.material-symbols {
+  font-size: $skill-icon-size;
+  font-variation-settings: "FILL" 1, "wght" 100, "GRAD" -25, "opsz" 48;
+}
+
 .skill-icon {
   position: absolute;
-  top: 5px;
+  top: 15px;
   left: 0;
   right: 0;
-  height: 50px;
+  height: $skill-icon-size;
   text-align: center;
 }
 
 .skill-header {
   position: absolute;
-  left: -20px;
+  left: -0;
   top: 80px;
-  font-size: 14px;
   color: black;
+  width: 100%;
+  height: 50px;
+  // background-color: map_get($custom-accent, 500);
+  font-size: 25px;
+}
+
+.skill-header-background {
+  left: -20px;
+  top: 105px;
+  position: absolute;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: 20px;
   background-color: map_get($custom-accent, 500);
 }
 
 .skill-body {
   position: absolute;
-  top: 120px;
+  top: 140px;
   left: 40px;
   right: 40px;
   font-size: 15px;
   text-align: center;
   color: map_get($custom-primary, 600);
-}
-
-mat-icon {
-  height: 65px;
-  width: 65px;
-  color: map_get($custom-warn, 700);
-}
-
-.material-symbols {
-  font-size: 65px;
-  font-variation-settings: "FILL" 1, "wght" 100, "GRAD" -25, "opsz" 48;
 }
 
 h1 {
@@ -146,6 +163,7 @@ h1 {
 }
 //#endregion
 
+//#region Header
 .header-text-container {
   position: relative;
   z-index: 3;
@@ -198,3 +216,4 @@ h1 {
   height: calc(3072 * var(--windowWidth) / 4608 + 1px);
   /* Add more styling as needed */
 }
+//#endregion
