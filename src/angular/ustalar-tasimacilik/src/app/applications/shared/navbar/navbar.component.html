@@ -50,30 +50,30 @@
           (click)="sidebarVisible = !sidebarVisible"
           class="list-icon-button"
         >
-          <mat-icon svgIcon="facebook-icon"></mat-icon>
+          <mat-icon svgIcon="facebook_colored_icon"></mat-icon>
         </button>
         <button
           mat-icon-button
           (click)="sidebarVisible = !sidebarVisible"
           class="list-icon-button"
         >
-          <mat-icon svgIcon="instagram-icon"></mat-icon>
+          <mat-icon svgIcon="instagram_colored_icon"></mat-icon>
         </button>
         <button
           mat-icon-button
           (click)="sidebarVisible = !sidebarVisible"
           class="list-icon-button"
         >
-          <mat-icon svgIcon="whatsapp-icon"></mat-icon>
+          <mat-icon svgIcon="whatsapp_colored_icon"></mat-icon>
         </button>
       </mat-list-item>
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-icon
-      class="fixed-icon"
-      svgIcon="fixed-whatsapp-icon"
-    ></mat-icon>
-    <router-outlet></router-outlet>
+    <!-- <mat-icon class="fixed-icon" svgIcon="fixed_whatsapp_icon"></mat-icon> -->
+    <div class="router-outlet">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

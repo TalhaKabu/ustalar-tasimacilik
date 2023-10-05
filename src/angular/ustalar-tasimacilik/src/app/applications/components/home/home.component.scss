@@ -213,7 +213,7 @@ h1 {
   background-size: cover;
   background-repeat: no-repeat; /* Prevents image repetition */
   width: var(--windowWidth);
-  height: calc(3072 * var(--windowWidth) / 4608 + 1px);
+  height: calc(3072 * var(--windowWidth) / 4608 + 2px);
   /* Add more styling as needed */
 }
 //#endregion

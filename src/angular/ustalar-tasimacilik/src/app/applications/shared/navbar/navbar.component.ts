@@ -1,6 +1,4 @@
-import { Component, Host, HostBinding, Input } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -20,40 +18,6 @@ export class NavbarComponent {
   @HostBinding('style.--windowHeight')
   @Input()
   windowHeight: string = '0px';
-
-  constructor(
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
-  ) {
-    // Register the WhatsApp icon
-    this.matIconRegistry.addSvgIcon(
-      'whatsapp-icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/whatsapp.svg'
-      )
-    );
-
-    this.matIconRegistry.addSvgIcon(
-      'instagram-icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/instagram.svg'
-      )
-    );
-
-    this.matIconRegistry.addSvgIcon(
-      'facebook-icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/facebook.svg'
-      )
-    );
-
-    this.matIconRegistry.addSvgIcon(
-      'fixed-whatsapp-icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/fixed-whatsapp-icon.svg'
-      )
-    );
-  }
 
   ngOnInit(): void {
     this.windowHeight = window.innerHeight + 'px';

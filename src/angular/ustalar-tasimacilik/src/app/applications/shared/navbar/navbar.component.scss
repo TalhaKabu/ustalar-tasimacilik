@@ -19,9 +19,9 @@ mat-sidenav-container {
   min-height: 100vh;
 }
 
-mat-sidenav-content {
-  max-width: 1920px;
+.router-outlet {
   position: relative;
+  max-width: 1920px;
   margin: 0 auto;
 }
 
