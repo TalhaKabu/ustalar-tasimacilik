@@ -1,58 +1,213 @@
-<div style="padding: 2rem">
-  <div class="contact-header-container">
-    <h3>Nakliyat Talep Formu</h3>
-  </div>
-  <div class="progres-container" style="margin-bottom: 30px">
-    <p>Aşağıdaki formu doldurarak nakliyat talebinde bulunabilirsiniz!</p>
+<div>
+  <div class="tranportation-form">
+    <div class="contact-header-container">
+      <h3>Nakliyat Talep Formu</h3>
+    </div>
+    <div class="progres-container" style="margin-bottom: 30px">
+      <p>Aşağıdaki formu doldurarak nakliyat talebinde bulunabilirsiniz!</p>
 
-    <div class="progress-bar">
-      <p style="padding: 0; margin-left: 10px">Sayfa {{ page }}/5</p>
+      <div class="progress-bar">
+        <p style="padding: 0">Sayfa {{ page }}/{{ pagesLength }}</p>
+      </div>
     </div>
-  </div>
-  <div class="input-list-container">
-    <div class="header-container">
-      <mat-icon
-        svgIcon="person-filled-icon"
-        style="margin-right: 5px"
-      ></mat-icon>
-      Kişisel Bilgiler *
-    </div>
-    <mat-form-field
-      #matFormField
-      appearance="outline"
-      style="width: 100%"
-      *ngFor="let input of inputs"
-      color="warn"
+    <div
+      class="input-list-container"
+      *ngFor="let pageContainer of pages"
+      [hidden]="page != pageContainer.page"
     >
-      <mat-label>{{ input.labelName }}</mat-label>
-      <input
-        matInput
-        [placeholder]="input.placeHolder"
-        [type]="input.type"
-        (focus)="onInputFocus(input.labelName)"
-        (blur)="onInputBlur(input.labelName)"
-      />
-      <mat-icon
-        matSuffix
-        [svgIcon]="input.icon"
-        [color]="input.isFocused ? 'warn' : 'primary'"
-      ></mat-icon>
-      <mat-error>Invalid name</mat-error>
-    </mat-form-field>
-    <div class="pages-container">
-      <button mat-icon-button [hidden]="page == 1">
+      <div class="header-container">
         <mat-icon
-          class="arrow-icon"
-          svgIcon="left-arrow-filled-icon"
+          [svgIcon]="pageContainer.icon"
+          style="margin-right: 5px"
         ></mat-icon>
-      </button>
-      <span class="example-spacer"></span>
-      <button mat-icon-button>
-        <mat-icon
-          class="arrow-icon"
-          svgIcon="right-arrow-filled-icon"
-        ></mat-icon>
-      </button>
+        {{ pageContainer.name }}
+      </div>
+      <div [hidden]="page != 1">
+        <mat-form-field
+          #matFormField
+          appearance="outline"
+          *ngFor="let input of inputs"
+          color="warn"
+        >
+          <mat-label>{{ input.labelName }}</mat-label>
+          <input
+            matInput
+            [placeholder]="input.placeHolder"
+            [type]="input.type"
+            (focus)="onInputFocus(input.labelName)"
+            (blur)="onInputBlur(input.labelName)"
+          />
+          <mat-icon
+            matSuffix
+            [svgIcon]="input.icon"
+            [color]="input.isFocused ? 'warn' : 'primary'"
+          ></mat-icon>
+          <mat-error>Yanlış isim</mat-error>
+        </mat-form-field>
+      </div>
+      <div [hidden]="page != 2">
+        <mat-radio-group [(ngModel)]="selectedTransportType">
+          <mat-radio-button
+            *ngFor="let transportType of transportTypeOptions"
+            color="warn"
+            [value]="transportType.value"
+          >
+            {{ transportType.labelName }}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div
+          class="property-type-container"
+          style="margin-top: 10px"
+          [hidden]="selectedTransportType != 1"
+        >
+          <p>Mülk Tipi Belirtin *</p>
+          <mat-form-field appearance="outline" color="warn">
+            <mat-label>Mülk Tipi</mat-label>
+            <mat-select [(ngModel)]="selectedPropertyType" required>
+              <mat-option
+                *ngFor="let propertyType of propertyTypeOptions"
+                [value]="propertyType.value"
+                >{{ propertyType.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" color="warn">
+            <mat-label>Oda Sayısı</mat-label>
+            <mat-select [(ngModel)]="selectedNumberOfRoom" required>
+              <mat-option
+                *ngFor="let numberOfRoom of numberOfRooms"
+                [value]="numberOfRoom.value"
+                >{{ numberOfRoom.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          <div [hidden]="selectedPropertyType != 2">
+            <mat-form-field appearance="outline" color="warn">
+              <mat-label>Bulunduğu Kat</mat-label>
+              <mat-select [(ngModel)]="selectedNumberOfFloor" required>
+                <mat-option
+                  *ngFor="let numberOfFloor of numberOfFloors"
+                  [value]="numberOfFloor.value"
+                  >{{ numberOfFloor.name }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="note-container">
+          <mat-form-field appearance="outline" color="warn">
+            <mat-label>Detayları Belirtin</mat-label>
+            <textarea
+              class="no-resize"
+              matInput
+              placeholder="Detayları giriniz"
+              [(ngModel)]="details"
+              style="height: 100px"
+              maxlength="250"
+              (input)="remaining = total - details.length"
+            ></textarea>
+            <span class="remaning">{{ remaining }} / {{ total }}</span>
+          </mat-form-field>
+        </div>
+      </div>
+      <div [hidden]="page != 3">
+        <p>Nereden</p>
+        <div class="from-container">
+          <mat-form-field appearance="outline" color="warn">
+            <mat-label>İl *</mat-label>
+            <input
+              matInput
+              placeholder="İl giriniz"
+              type="text"
+              maxlength="50"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline" color="warn">
+            <mat-label>Adres *</mat-label>
+            <input
+              #from
+              matInput
+              placeholder="Adres giriniz"
+              type="text"
+              maxlength="200"
+            />
+            <mat-icon
+              matSuffix
+              svgIcon="map-filled-icon"
+              color="primary"
+            ></mat-icon>
+          </mat-form-field>
+        </div>
+        <p>Nereye</p>
+        <div class="to-container">
+          <mat-form-field appearance="outline" color="warn">
+            <mat-label>İl *</mat-label>
+            <input
+              matInput
+              placeholder="İl giriniz"
+              type="text"
+              maxlength="50"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline" color="warn">
+            <mat-label>Adres *</mat-label>
+            <input
+              matInput
+              placeholder="Adres giriniz"
+              type="text"
+              maxlength="200"
+            />
+            <mat-icon
+              matSuffix
+              svgIcon="map-filled-icon"
+              color="primary"
+            ></mat-icon>
+          </mat-form-field>
+        </div>
+       
+      </div>
+      <div [hidden]="page != 4">
+        <p>Ne Zaman</p>
+        <div class="time-container">
+          <mat-form-field appearance="outline" color="warn">
+            <mat-label>Tarih *</mat-label>
+            <input
+              matInput
+              placeholder="Tarih Giriniz"
+              type="date"
+              style="height: 18px"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" color="warn">
+            <mat-label>Zaman *</mat-label>
+            <input matInput placeholder="Saat Giriniz" type="time" />
+          </mat-form-field>
+        </div>
+      </div> 
+      <div class="pages-container">
+        <button
+          mat-icon-button
+          (click)="changePage(false)"
+          [hidden]="page == 1"
+        >
+          <mat-icon
+            class="arrow-icon"
+            svgIcon="left-arrow-filled-icon"
+          ></mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+        <button
+          mat-icon-button
+          (click)="changePage(true)"
+          [hidden]="page == pagesLength"
+        >
+          <mat-icon
+            class="arrow-icon"
+            svgIcon="right-arrow-filled-icon"
+          ></mat-icon>
+        </button>
+      </div>
     </div>
   </div>
 </div>

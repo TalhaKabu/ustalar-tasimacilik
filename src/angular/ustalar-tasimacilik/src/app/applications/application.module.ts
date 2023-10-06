@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -42,6 +44,8 @@ import { DomSanitizer } from '@angular/platform-browser';
     MatFormFieldModule,
     MatInputModule,
     MatProgressBarModule,
+    MatRadioModule,
+    MatSelectModule,
   ],
   exports: [NavbarComponent],
   providers: [],
@@ -158,6 +162,13 @@ export class ApplicationModule {
     );
 
     this.matIconRegistry.addSvgIcon(
+      'truck-filled-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/truck-filled-icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
       'left-arrow-filled-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
         'assets/svgs/left-arrow-filled-icon.svg'
@@ -168,6 +179,41 @@ export class ApplicationModule {
       'right-arrow-filled-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
         'assets/svgs/right-arrow-filled-icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'adress-filled-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/adress-filled-icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'map-filled-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/map-filled-icon.svg'
+      )
+    );
+
+    // this.matIconRegistry.addSvgIcon(
+    //   'exit-filled-icon',
+    //   this.domSanitizer.bypassSecurityTrustResourceUrl(
+    //     'assets/svgs/exit-filled-icon.svg'
+    //   )
+    // );
+
+    // this.matIconRegistry.addSvgIcon(
+    //   'enter-filled-icon',
+    //   this.domSanitizer.bypassSecurityTrustResourceUrl(
+    //     'assets/svgs/enter-filled-icon.svg'
+    //   )
+    // );
+
+    this.matIconRegistry.addSvgIcon(
+      'date-filled-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/date-filled-icon.svg'
       )
     );
     //#endregion

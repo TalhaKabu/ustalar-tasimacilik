@@ -1,13 +1,57 @@
 @import "/src/theme";
 
+:host ::ng-deep .mdc-text-field {
+  background-color: white !important;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+@media (min-width: 720px) {
+  .tranportation-form {
+    width: calc(720px - 4rem);
+    margin: 0 auto;
+  }
+}
+.tranportation-form {
+  padding: 2rem;
+}
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center;
+  height: 30px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    map_get($custom-warn, 500) calc(var(--page) * (100% / var(--pagesLenght))),
+    map_get($custom-primary, 200)
+      calc(var(--page) * (100% / var(--pagesLenght)))
+  );
+  // background-color: map_get($custom-warn, 500);
+  border-radius: 5px;
+}
+
+//#region Kişisel bilgiler
 .input-list-container {
   position: relative;
   border: 1px solid map_get($custom-primary, 200);
   border-radius: 5px;
   font-family: "Times New Roman", Times, serif;
-  background-color: map_get($custom-primary, 100);
+  background-color: map_get($custom-primary, 50);
   padding: 30px;
-  color: map_get($custom-primary, 700);
 }
 
 .header-container {
@@ -21,7 +65,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px map_get($custom-primary, 100) inset !important;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
 .pages-container {
@@ -32,21 +76,13 @@ input:-webkit-autofill:active {
 .example-spacer {
   flex: 1 1 auto;
 }
+//#endregion
 
-.progress-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+//#region Taşıma türü
+.remaning {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 10px;
 }
-
-.progress-bar {
-  height: 20px;
-  width: 100%;
-  background: linear-gradient(
-    to right,
-    map_get($custom-warn, 500) calc(var(--page) * 20%),
-    map_get($custom-primary, 200) calc(var(--page) * 20%)
-  );
-  // background-color: map_get($custom-warn, 500);
-  border-radius: 5px;
-}
+//#endregion
