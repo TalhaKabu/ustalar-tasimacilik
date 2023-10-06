@@ -15,6 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -46,6 +48,8 @@ import { DomSanitizer } from '@angular/platform-browser';
     MatProgressBarModule,
     MatRadioModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [NavbarComponent],
   providers: [],
@@ -214,6 +218,13 @@ export class ApplicationModule {
       'date-filled-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
         'assets/svgs/date-filled-icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'time-filled-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/time-filled-icon.svg'
       )
     );
     //#endregion

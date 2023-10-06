@@ -1,4 +1,5 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Time } from '@angular/common';
+import { Component, ElementRef, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -33,7 +34,17 @@ export class ContactComponent {
   details: string = '';
   remaining: number = 250;
   total: number = 250;
-  //#
+
+  toAdress: string = '';
+  toCity: string = '';
+  fromAdress: string = '';
+  fromCity: string = '';
+
+  date: string = new Date().toISOString();
+  time: string = new Date().getHours() + ':' + new Date().getMinutes();
+
+  doc: Document = document;
+  //#endregion
 
   ngOnInit(): void {
     this.pages.push(

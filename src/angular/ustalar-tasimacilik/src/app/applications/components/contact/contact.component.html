@@ -34,6 +34,8 @@
             matInput
             [placeholder]="input.placeHolder"
             [type]="input.type"
+            maxlength="50"
+            [(ngModel)]="input.inputValue"
             (focus)="onInputFocus(input.labelName)"
             (blur)="onInputBlur(input.labelName)"
           />
@@ -119,22 +121,24 @@
               matInput
               placeholder="İl giriniz"
               type="text"
+              [(ngModel)]="fromCity"
               maxlength="50"
             />
           </mat-form-field>
           <mat-form-field appearance="outline" color="warn">
             <mat-label>Adres *</mat-label>
             <input
-              #from
+              #fromInput
               matInput
               placeholder="Adres giriniz"
               type="text"
+              [(ngModel)]="fromAdress"
               maxlength="200"
             />
             <mat-icon
               matSuffix
               svgIcon="map-filled-icon"
-              color="primary"
+              [color]="doc.activeElement === fromInput ? 'warn' : 'primary'"
             ></mat-icon>
           </mat-form-field>
         </div>
@@ -146,25 +150,27 @@
               matInput
               placeholder="İl giriniz"
               type="text"
+              [(ngModel)]="toCity"
               maxlength="50"
             />
           </mat-form-field>
           <mat-form-field appearance="outline" color="warn">
             <mat-label>Adres *</mat-label>
             <input
+              #toInput
               matInput
               placeholder="Adres giriniz"
               type="text"
+              [(ngModel)]="toAdress"
               maxlength="200"
             />
             <mat-icon
               matSuffix
               svgIcon="map-filled-icon"
-              color="primary"
+              [color]="doc.activeElement === toInput ? 'warn' : 'primary'"
             ></mat-icon>
           </mat-form-field>
         </div>
-       
       </div>
       <div [hidden]="page != 4">
         <p>Ne Zaman</p>
@@ -172,19 +178,42 @@
           <mat-form-field appearance="outline" color="warn">
             <mat-label>Tarih *</mat-label>
             <input
+              #dateInput
               matInput
               placeholder="Tarih Giriniz"
-              type="date"
               style="height: 18px"
+              [matDatepicker]="picker"
+              [(ngModel)]="date"
             />
+            <mat-datepicker-toggle matIconSuffix [for]="picker">
+              <mat-icon
+                [color]="doc.activeElement === dateInput ? 'warn' : 'primary'"
+                matDatepickerToggleIcon
+                svgIcon="date-filled-icon"
+              ></mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
 
           <mat-form-field appearance="outline" color="warn">
             <mat-label>Zaman *</mat-label>
-            <input matInput placeholder="Saat Giriniz" type="time" />
+            <input
+              #timeInput
+              matInput
+              placeholder="Saat Giriniz"
+              type="time"
+              #dateInputIcon
+              color="warn"
+              [(ngModel)]="time"
+            />
+            <mat-icon
+              matSuffix
+              svgIcon="time-filled-icon"
+              [color]="doc.activeElement === timeInput ? 'warn' : 'primary'"
+            ></mat-icon>
           </mat-form-field>
         </div>
-      </div> 
+      </div>
       <div class="pages-container">
         <button
           mat-icon-button
