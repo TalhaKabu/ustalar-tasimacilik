@@ -4,7 +4,8 @@
 // Define your custom color palette
 $custom-primary: mat.define-palette(palette.$black-palette, 800);
 $custom-accent: mat.define-palette(palette.$orange-palette, 400, 500, 600);
-$custom-warn: mat.define-palette(palette.$green-palette, 500);
+$custom-warn: mat.define-palette(palette.$blue-palette, 500, 600, 700);
+$custom-third: mat.define-palette(palette.$green-palette, 500);
 
 // Create the theme
 $custom-theme: mat.define-light-theme(
@@ -13,6 +14,7 @@ $custom-theme: mat.define-light-theme(
       primary: $custom-primary,
       accent: $custom-accent,
       warn: $custom-warn,
+      third: $custom-third,
     ),
   )
 );

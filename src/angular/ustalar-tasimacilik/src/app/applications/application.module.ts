@@ -9,6 +9,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -34,6 +38,10 @@ import { DomSanitizer } from '@angular/platform-browser';
     MatDividerModule,
     MatCardModule,
     CommonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressBarModule,
   ],
   exports: [NavbarComponent],
   providers: [],
@@ -44,7 +52,6 @@ export class ApplicationModule {
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
   ) {
-
     //#region Home
     this.matIconRegistry.addSvgIcon(
       'truck_icon',
@@ -124,6 +131,43 @@ export class ApplicationModule {
       'facebook_outlined_icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
         'assets/svgs/facebook_outlined_icon.svg'
+      )
+    );
+    //#endregion
+
+    //#region Contacts
+    this.matIconRegistry.addSvgIcon(
+      'person-filled-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/person-filled-icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'mail-filled-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/mail-filled-icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'phone-filled-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/phone-filled-icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'left-arrow-filled-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/left-arrow-filled-icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'right-arrow-filled-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/right-arrow-filled-icon.svg'
       )
     );
     //#endregion
