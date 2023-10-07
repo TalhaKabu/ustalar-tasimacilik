@@ -214,6 +214,51 @@
           </mat-form-field>
         </div>
       </div>
+      <div [hidden]="page != 5">
+        <div class="confirmation-page">
+          <div class="confirmation-item">
+            <p><b>Tam Ad:</b> {{ finalModel.fullname }}</p>
+          </div>
+          <div class="confirmation-item">
+            <p><b>Mail:</b> {{ finalModel.mail }}</p>
+          </div>
+          <div class="confirmation-item">
+            <p><b>Telefon:</b> {{ finalModel.tel }}</p>
+          </div>
+          <div class="confirmation-item">
+            <p><b>Taşıma Tipi:</b> {{ finalModel.transportType }}</p>
+          </div>
+          <div class="confirmation-item">
+            <p><b>Ev Tipi:</b> {{ finalModel.propertyType }}</p>
+          </div>
+          <div class="confirmation-item">
+            <p><b>Kat:</b> {{ finalModel.numberOfFloor }}</p>
+          </div>
+          <div class="confirmation-item">
+            <p><b>Oda Sayısı:</b> {{ finalModel.numberOfRoom }}</p>
+          </div>
+          <div class="confirmation-item">
+            <p>
+              <b>Nereden:</b> {{ finalModel.fromAddress }} |
+              {{ finalModel.fromCity }}
+            </p>
+          </div>
+          <div class="confirmation-item">
+            <p>
+              <b>Nereye:</b> {{ finalModel.toAddress }} |
+              {{ finalModel.toCity }}
+            </p>
+          </div>
+          <div class="confirmation-item">
+            <p>
+              <b>Tarih & Saat:</b> {{ finalModel.date }} {{ finalModel.time }}
+            </p>
+          </div>
+          <div class="confirmation-item">
+            <p><b>Detaylar:</b> {{ finalModel.details }}</p>
+          </div>
+        </div>
+      </div>
       <div class="pages-container">
         <button
           mat-icon-button

@@ -1,5 +1,6 @@
-import { Time } from '@angular/common';
-import { Component, ElementRef, HostBinding, Input } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, HostBinding, Input } from '@angular/core';
+import { ContactDto } from './contact-dtos';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +14,7 @@ export class ContactComponent {
   pages: any[] = [];
   @HostBinding('style.--page')
   @Input()
-  page: number = 3;
+  page: number = 1;
 
   @HostBinding('style.--pagesLenght')
   @Input()
@@ -44,9 +45,14 @@ export class ContactComponent {
   time: string = new Date().getHours() + ':' + new Date().getMinutes();
 
   doc: Document = document;
+
+  finalModel: ContactDto = <ContactDto>{};
   //#endregion
 
+  constructor(private datePipe: DatePipe) {}
+
   ngOnInit(): void {
+    console.log(this.date);
     this.pages.push(
       {
         name: 'Kişisel Bilgiler *',
@@ -67,6 +73,11 @@ export class ContactComponent {
         name: 'Taşıma Zaman Bilgileri *',
         icon: 'date-filled-icon',
         page: 4,
+      },
+      {
+        name: 'Bilgileri Onayla ve Gönder *',
+        icon: 'approval-filled-icon',
+        page: 5,
       }
     );
 
@@ -74,6 +85,7 @@ export class ContactComponent {
 
     this.inputs.push(
       {
+        value: 1,
         labelName: 'Ad *',
         inputValue: '',
         placeHolder: 'Adınızı giriniz',
@@ -82,6 +94,7 @@ export class ContactComponent {
         isFocused: false,
       },
       {
+        value: 2,
         labelName: 'Soyad *',
         inputValue: '',
         placeHolder: 'Soyadınızı giriniz',
@@ -90,6 +103,7 @@ export class ContactComponent {
         isFocused: false,
       },
       {
+        value: 3,
         labelName: 'Email *',
         inputValue: '',
         placeHolder: 'Mail adresinizi giriniz',
@@ -98,6 +112,7 @@ export class ContactComponent {
         isFocused: false,
       },
       {
+        value: 4,
         labelName: 'Telefon *',
         inputValue: '',
         placeHolder: 'Telefon numaranızı giriniz',
@@ -225,8 +240,40 @@ export class ContactComponent {
   changePage(value: boolean) {
     if (value) {
       this.page++;
+      if (this.page == 5) this.setModel();
     } else {
       this.page--;
     }
+  }
+
+  setModel() {
+    this.finalModel.fullname =
+      this.inputs.find((x) => x.value == 1).inputValue +
+      ' ' +
+      this.inputs.find((x) => x.value == 2).inputValue;
+    this.finalModel.mail = this.inputs.find((x) => x.value == 3).inputValue;
+    this.finalModel.tel = this.inputs.find((x) => x.value == 4).inputValue;
+    this.finalModel.transportType = this.transportTypeOptions.find(
+      (x) => x.value == this.selectedTransportType
+    ).labelName;
+    this.finalModel.propertyType = this.propertyTypeOptions.find(
+      (x) => x.value == this.selectedPropertyType
+    ).name;
+    this.finalModel.numberOfFloor = this.numberOfFloors.find(
+      (x) => x.value == this.selectedNumberOfFloor
+    ).name;
+    this.finalModel.numberOfRoom = this.numberOfRooms.find(
+      (x) => x.value == this.selectedNumberOfRoom
+    ).name;
+    this.finalModel.details = this.details;
+    this.finalModel.fromAddress = this.fromAdress;
+    this.finalModel.fromCity = this.fromCity;
+    this.finalModel.toAddress = this.toAdress;
+    this.finalModel.toCity = this.toCity;
+    this.finalModel.date = this.datePipe.transform(this.date, 'dd.MM.yyyy');
+    this.finalModel.time = this.time;
+    this.finalModel.details = this.details;
+
+    console.log(this.finalModel);
   }
 }

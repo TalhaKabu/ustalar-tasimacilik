@@ -86,3 +86,19 @@ input:-webkit-autofill:active {
   font-size: 10px;
 }
 //#endregion
+
+//#region Confirmation Page
+.confirmation-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirmation-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.confirmation-item p {
+  margin: 8px 0;
+}
+//#endregion

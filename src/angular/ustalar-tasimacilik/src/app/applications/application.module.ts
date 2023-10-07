@@ -23,6 +23,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { DomSanitizer } from '@angular/platform-browser';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { DomSanitizer } from '@angular/platform-browser';
     MatNativeDateModule,
   ],
   exports: [NavbarComponent],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [],
 })
 export class ApplicationModule {
@@ -225,6 +226,13 @@ export class ApplicationModule {
       'time-filled-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
         'assets/svgs/time-filled-icon.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'approval-filled-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/approval-filled-icon.svg'
       )
     );
     //#endregion
