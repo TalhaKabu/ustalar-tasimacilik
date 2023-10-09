@@ -11,6 +11,11 @@ mat-radio-group {
 
 mat-form-field {
   width: 100%;
+  margin-bottom: 10px;
+}
+
+mat-form-field:last-child {
+  margin-bottom: 0;
 }
 
 @media (min-width: 720px) {
@@ -102,3 +107,7 @@ input:-webkit-autofill:active {
   margin: 8px 0;
 }
 //#endregion
+
+.invalid-field {
+  color: red;
+}

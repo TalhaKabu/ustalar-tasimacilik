@@ -17,6 +17,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -51,6 +52,7 @@ import { DatePipe } from '@angular/common';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ReactiveFormsModule,
   ],
   exports: [NavbarComponent],
   providers: [DatePipe],

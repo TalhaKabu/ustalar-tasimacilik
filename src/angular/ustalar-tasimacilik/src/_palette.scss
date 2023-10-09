@@ -20,6 +20,10 @@ $black-palette: (
   700: #4d4d4d,
   800: #333333,
   900: #1a1a1a,
+  A100: #ea80fc,
+  A200: #e040fb,
+  A400: #d500f9,
+  A700: #aa00ff,
   contrast: (
     50: $light-primary-text,
     100: $light-primary-text,
@@ -35,7 +39,6 @@ $black-palette: (
     A200: $dark-primary-text,
     A400: $dark-primary-text,
     A700: $light-primary-text,
-    main: $light-primary-text,
   ),
 );
 

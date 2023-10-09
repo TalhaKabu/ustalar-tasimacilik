@@ -24,10 +24,9 @@
       </div>
       <div [hidden]="page != 1">
         <mat-form-field
-          #matFormField
           appearance="outline"
           *ngFor="let input of inputs"
-          color="warn"
+          color="accent"
         >
           <mat-label>{{ input.labelName }}</mat-label>
           <input
@@ -35,16 +34,22 @@
             [placeholder]="input.placeHolder"
             [type]="input.type"
             maxlength="50"
-            [(ngModel)]="input.inputValue"
             (focus)="onInputFocus(input.labelName)"
             (blur)="onInputBlur(input.labelName)"
+            [formControl]="input.inputValue"
+            required
           />
+          <mat-error *ngIf="input.inputValue.hasError('required')">
+            Zorunlu alan doldurulmalıdır!
+          </mat-error>
+          <mat-error *ngIf="input.inputValue.hasError('email')">
+            Mail adresi yanlış!
+          </mat-error>
           <mat-icon
             matSuffix
             [svgIcon]="input.icon"
             [color]="input.isFocused ? 'warn' : 'primary'"
           ></mat-icon>
-          <mat-error>Yanlış isim</mat-error>
         </mat-form-field>
       </div>
       <div [hidden]="page != 2">

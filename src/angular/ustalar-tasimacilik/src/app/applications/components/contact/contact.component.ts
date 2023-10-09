@@ -1,6 +1,12 @@
 import { DatePipe } from '@angular/common';
 import { Component, HostBinding, Input } from '@angular/core';
 import { ContactDto } from './contact-dtos';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -49,10 +55,9 @@ export class ContactComponent {
   finalModel: ContactDto = <ContactDto>{};
   //#endregion
 
-  constructor(private datePipe: DatePipe) {}
+  constructor(private datePipe: DatePipe, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    console.log(this.date);
     this.pages.push(
       {
         name: 'Kişisel Bilgiler *',
@@ -86,8 +91,8 @@ export class ContactComponent {
     this.inputs.push(
       {
         value: 1,
-        labelName: 'Ad *',
-        inputValue: '',
+        labelName: 'Ad',
+        inputValue: new FormControl('', [Validators.required]),
         placeHolder: 'Adınızı giriniz',
         icon: '',
         type: 'text',
@@ -95,8 +100,8 @@ export class ContactComponent {
       },
       {
         value: 2,
-        labelName: 'Soyad *',
-        inputValue: '',
+        labelName: 'Soyad',
+        inputValue: new FormControl('', [Validators.required]),
         placeHolder: 'Soyadınızı giriniz',
         icon: '',
         type: 'text',
@@ -104,8 +109,11 @@ export class ContactComponent {
       },
       {
         value: 3,
-        labelName: 'Email *',
-        inputValue: '',
+        labelName: 'Email',
+        inputValue: new FormControl('', [
+          Validators.required,
+          Validators.email,
+        ]),
         placeHolder: 'Mail adresinizi giriniz',
         icon: 'mail-filled-icon',
         type: 'email',
@@ -113,8 +121,8 @@ export class ContactComponent {
       },
       {
         value: 4,
-        labelName: 'Telefon *',
-        inputValue: '',
+        labelName: 'Telefon',
+        inputValue: new FormControl('', [Validators.required]),
         placeHolder: 'Telefon numaranızı giriniz',
         icon: 'phone-filled-icon',
         type: 'tel',
@@ -227,6 +235,16 @@ export class ContactComponent {
     );
   }
 
+  getErrorMessage(value: number) {
+    console.log('girdi');
+    var input = this.inputs.find((x) => x.value == value);
+    if (input.inputValue.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return input.inputValue.hasError('email') ? 'Not a valid email' : '';
+  }
+
   onInputFocus(labelName: string) {
     this.inputs.find((x) => x.labelName == labelName).isFocused = true;
   }
@@ -273,7 +291,5 @@ export class ContactComponent {
     this.finalModel.date = this.datePipe.transform(this.date, 'dd.MM.yyyy');
     this.finalModel.time = this.time;
     this.finalModel.details = this.details;
-
-    console.log(this.finalModel);
   }
 }
