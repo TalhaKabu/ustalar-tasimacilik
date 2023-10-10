@@ -8,8 +8,8 @@ mat-toolbar {
   top: 0;
   height: var(--toolbarHeight);
   justify-content: center;
-  background-color: map_get($custom-primary, 800);
-  color: map_get($custom-primary, 50);
+  // background-color: map_get($custom-primary, 800);
+  // color: map_get($custom-primary, 50);
 }
 
 mat-sidenav-container {
@@ -29,8 +29,7 @@ mat-sidenav {
   width: auto;
   min-width: 250px;
   max-width: 350px;
-  color: map_get($custom-primary, 50);
-  background-color: map_get($custom-primary, 700);
+  background-color: map_get($custom-primary, main);
 
   height: calc(var(--windowHeight) - var(--toolbarHeight)) !important;
   position: fixed;
@@ -52,14 +51,12 @@ mat-list-item {
 .list-button {
   width: 100%;
   justify-content: start;
-  color: map-get($custom-primary, 100) !important;
 }
 
 .list-icon-button {
   width: auto;
   justify-content: center;
   align-items: center;
-  color: map-get($custom-primary, 100) !important;
 }
 
 .offer-button {
