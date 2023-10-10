@@ -22,6 +22,10 @@ export class ContactComponent {
   @Input()
   page: number = 1;
 
+  @HostBinding('style.--previousPage')
+  @Input()
+  previousPage: number = 0;
+
   @HostBinding('style.--pagesLenght')
   @Input()
   pagesLength: number = 1;
@@ -256,6 +260,7 @@ export class ContactComponent {
   }
 
   changePage(value: boolean) {
+    this.previousPage = this.page;
     if (value) {
       this.page++;
       if (this.page == 5) this.setModel();

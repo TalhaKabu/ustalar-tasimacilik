@@ -1,13 +1,16 @@
 <div>
   <div class="tranportation-form">
     <div class="contact-header-container">
-      <h3>Nakliyat Talep Formu</h3>
+      <h3 style="margin-top: 0">Nakliyat Talep Formu</h3>
     </div>
-    <div class="progres-container" style="margin-bottom: 30px">
+    <div class="progres-container">
       <p>Aşağıdaki formu doldurarak nakliyat talebinde bulunabilirsiniz!</p>
 
-      <div class="progress-bar">
-        <p style="padding: 0">Sayfa {{ page }}/{{ pagesLength }}</p>
+      <div class="progress-bar-container">
+        <p style="padding: 0; margin: 0; z-index: 3">
+          Sayfa {{ page }}/{{ pagesLength }}
+        </p>
+        <div class="progress-bar"></div>
       </div>
     </div>
     <div
@@ -26,7 +29,7 @@
         <mat-form-field
           appearance="outline"
           *ngFor="let input of inputs"
-          color="accent"
+          color="primary"
         >
           <mat-label>{{ input.labelName }}</mat-label>
           <input
@@ -48,7 +51,7 @@
           <mat-icon
             matSuffix
             [svgIcon]="input.icon"
-            [color]="input.isFocused ? 'warn' : 'primary'"
+            [color]="'primary'"
           ></mat-icon>
         </mat-form-field>
       </div>
@@ -56,7 +59,7 @@
         <mat-radio-group [(ngModel)]="selectedTransportType">
           <mat-radio-button
             *ngFor="let transportType of transportTypeOptions"
-            color="warn"
+            color="primary"
             [value]="transportType.value"
           >
             {{ transportType.labelName }}
@@ -68,7 +71,7 @@
           [hidden]="selectedTransportType != 1"
         >
           <p>Mülk Tipi Belirtin *</p>
-          <mat-form-field appearance="outline" color="warn">
+          <mat-form-field appearance="outline" color="primary">
             <mat-label>Mülk Tipi</mat-label>
             <mat-select [(ngModel)]="selectedPropertyType" required>
               <mat-option
@@ -78,7 +81,7 @@
               >
             </mat-select>
           </mat-form-field>
-          <mat-form-field appearance="outline" color="warn">
+          <mat-form-field appearance="outline" color="primary">
             <mat-label>Oda Sayısı</mat-label>
             <mat-select [(ngModel)]="selectedNumberOfRoom" required>
               <mat-option
@@ -89,7 +92,7 @@
             </mat-select>
           </mat-form-field>
           <div [hidden]="selectedPropertyType != 2">
-            <mat-form-field appearance="outline" color="warn">
+            <mat-form-field appearance="outline" color="primary">
               <mat-label>Bulunduğu Kat</mat-label>
               <mat-select [(ngModel)]="selectedNumberOfFloor" required>
                 <mat-option
@@ -102,7 +105,7 @@
           </div>
         </div>
         <div class="note-container">
-          <mat-form-field appearance="outline" color="warn">
+          <mat-form-field appearance="outline" color="primary">
             <mat-label>Detayları Belirtin</mat-label>
             <textarea
               class="no-resize"
@@ -120,7 +123,7 @@
       <div [hidden]="page != 3">
         <p>Nereden</p>
         <div class="from-container">
-          <mat-form-field appearance="outline" color="warn">
+          <mat-form-field appearance="outline" color="primary">
             <mat-label>İl *</mat-label>
             <input
               matInput
@@ -130,7 +133,7 @@
               maxlength="50"
             />
           </mat-form-field>
-          <mat-form-field appearance="outline" color="warn">
+          <mat-form-field appearance="outline" color="primary">
             <mat-label>Adres *</mat-label>
             <input
               #fromInput
@@ -143,13 +146,13 @@
             <mat-icon
               matSuffix
               svgIcon="map-filled-icon"
-              [color]="doc.activeElement === fromInput ? 'warn' : 'primary'"
+              [color]="'primary'"
             ></mat-icon>
           </mat-form-field>
         </div>
         <p>Nereye</p>
         <div class="to-container">
-          <mat-form-field appearance="outline" color="warn">
+          <mat-form-field appearance="outline" color="primary">
             <mat-label>İl *</mat-label>
             <input
               matInput
@@ -159,7 +162,7 @@
               maxlength="50"
             />
           </mat-form-field>
-          <mat-form-field appearance="outline" color="warn">
+          <mat-form-field appearance="outline" color="primary">
             <mat-label>Adres *</mat-label>
             <input
               #toInput
@@ -172,7 +175,7 @@
             <mat-icon
               matSuffix
               svgIcon="map-filled-icon"
-              [color]="doc.activeElement === toInput ? 'warn' : 'primary'"
+              [color]="'primary'"
             ></mat-icon>
           </mat-form-field>
         </div>
@@ -180,7 +183,7 @@
       <div [hidden]="page != 4">
         <p>Ne Zaman</p>
         <div class="time-container">
-          <mat-form-field appearance="outline" color="warn">
+          <mat-form-field appearance="outline" color="primary">
             <mat-label>Tarih *</mat-label>
             <input
               #dateInput
@@ -192,7 +195,7 @@
             />
             <mat-datepicker-toggle matIconSuffix [for]="picker">
               <mat-icon
-                [color]="doc.activeElement === dateInput ? 'warn' : 'primary'"
+                [color]="'primary'"
                 matDatepickerToggleIcon
                 svgIcon="date-filled-icon"
               ></mat-icon>
@@ -200,7 +203,7 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
 
-          <mat-form-field appearance="outline" color="warn">
+          <mat-form-field appearance="outline" color="primary">
             <mat-label>Zaman *</mat-label>
             <input
               #timeInput
@@ -214,7 +217,7 @@
             <mat-icon
               matSuffix
               svgIcon="time-filled-icon"
-              [color]="doc.activeElement === timeInput ? 'warn' : 'primary'"
+              [color]="'primary'"
             ></mat-icon>
           </mat-form-field>
         </div>
@@ -270,10 +273,7 @@
           (click)="changePage(false)"
           [hidden]="page == 1"
         >
-          <mat-icon
-            class="arrow-icon"
-            svgIcon="left-arrow-filled-icon"
-          ></mat-icon>
+          <mat-icon svgIcon="left-arrow-filled-icon"></mat-icon>
         </button>
         <span class="example-spacer"></span>
         <button
@@ -281,10 +281,16 @@
           (click)="changePage(true)"
           [hidden]="page == pagesLength"
         >
-          <mat-icon
-            class="arrow-icon"
-            svgIcon="right-arrow-filled-icon"
-          ></mat-icon>
+          <mat-icon svgIcon="right-arrow-filled-icon"></mat-icon>
+        </button>
+        <button
+          mat-stroked-button
+          class="send-button"
+          color="primary"
+          [hidden]="page != pagesLength"
+        >
+          Gönder
+          <mat-icon>check</mat-icon>
         </button>
       </div>
     </div>

@@ -2,10 +2,10 @@
 @use "/src/palette" as palette;
 
 // Define your custom color palette
-$custom-primary: mat.define-palette(palette.$black-palette, 800);
-$custom-accent: mat.define-palette(palette.$blue-palette, 500, 600, 700);
-$custom-warn: mat.define-palette(mat.$red-palette, 500, 600, 700);
-$custom-third: mat.define-palette(mat.$green-palette, 500);
+$custom-primary: mat.define-palette(palette.$primary-palette, main);
+$custom-accent: mat.define-palette(palette.$accent-palette, main);
+$custom-warn: mat.define-palette(palette.$red-palette, 500, 600, 700);
+// $custom-third: mat.define-palette(mat.$green-palette, 500);
 
 // Create the theme
 $custom-theme: mat.define-light-theme(

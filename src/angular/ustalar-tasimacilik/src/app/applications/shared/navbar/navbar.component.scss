@@ -8,13 +8,10 @@ mat-toolbar {
   top: 0;
   height: var(--toolbarHeight);
   justify-content: center;
-  // background-color: map_get($custom-primary, 800);
-  // color: map_get($custom-primary, 50);
 }
 
 mat-sidenav-container {
-  // color: map_get($custom-accent, 300);
-  background-color: white;
+  background-color: map_get($custom-accent, third);
   top: var(--toolbarHeight);
   min-height: 100vh;
 }
