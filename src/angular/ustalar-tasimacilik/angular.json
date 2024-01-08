@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ustalar-tasimacilik:build:production"
+              "buildTarget": "ustalar-tasimacilik:build:production"
             },
             "development": {
-              "browserTarget": "ustalar-tasimacilik:build:development"
+              "buildTarget": "ustalar-tasimacilik:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ustalar-tasimacilik:build"
+            "buildTarget": "ustalar-tasimacilik:build"
           }
         },
         "test": {

@@ -10,7 +10,7 @@ $light-dividers: rgba(white, 0.12);
 $light-focused: rgba(white, 0.12);
 
 $primary-palette: (
-  main: #00adb5,
+  main: #7BB2D9,
   light: #B7F3F7,
   50: #e3f2fd,
   100: #bbdefb,
@@ -26,7 +26,7 @@ $primary-palette: (
   A200: #d0bfff,
   A400: #dfccfb,
   contrast: (
-    main: $dark-primary-text,
+    main: $light-primary-text,
     light: $dark-primary-text,
     50: $dark-primary-text,
     100: $dark-primary-text,
