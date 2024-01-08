@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   servicesItems: { id: number; name: string; icon: string }[] = [];
 
+  howItems: { icon: string; name: string; body: string }[] = [];
+
   ngOnInit(): void {
     this.servicesItems.push(
       {
@@ -24,6 +26,34 @@ export class HomeComponent implements OnInit {
         id: 2,
         name: 'Parça Eşya Taşımacılığı',
         icon: 'furniture_icon',
+      },
+      {
+        id: 1,
+        name: 'Ofiş Taşımacılığı',
+        icon: 'building_icon',
+      },
+    );
+
+    this.howItems.push(
+      {
+        icon: 'package_filled_icon',
+        name: 'Eşya Paketleme',
+        body: 'Kaliteli malzemelerle her eşyaya uygun ambalaj ve paketleme',
+      },
+      {
+        icon: 'package_filled_icon',
+        name: 'Tecrübeli Personel',
+        body: 'Uzun yıllar nakliye sektöründe hizmet etmiş profesyonel ekip',
+      },
+      {
+        icon: 'package_filled_icon',
+        name: 'Nakliye Araçları',
+        body: 'Sağlam, kaliteli nakliye araçları',
+      },
+      {
+        icon: 'package_filled_icon',
+        name: 'Sigortalı Nakliyat',
+        body: 'Taşıma işlemi öncesinde tüm eşyalarınız sigortalanarak taşınır',
       }
     );
   }

@@ -2,12 +2,17 @@
   width: 100%;
   height: auto;
   margin-top: 100px;
+  font-family: HNDRegular, Roboto, Arial, sans-serif !important;
 }
 
 .gen-container {
   max-width: 1366px;
   margin: 0 auto;
   margin-bottom: 50px;
+}
+
+.solid {
+  border-top: 2px solid #bbb;
 }
 
 //#region Offer
@@ -70,9 +75,6 @@
 .services-inner {
   height: 225px;
   width: 100%;
-  font-family: HNDRegular, Roboto, Arial, sans-serif !important;
-  justify-content: center;
-  align-items: center;
 }
 
 .services-item {
@@ -90,7 +92,7 @@
   height: 100px;
   margin: 0 auto;
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .icon-container {
@@ -109,6 +111,58 @@
 
 .services-item h3 {
   margin: auto;
+  margin-top: 20px !important;
   letter-spacing: 1.5px;
+}
+//#endregion
+
+//#region Doing
+.doing-container {
+  width: 100%;
+}
+
+.header h2 {
+  font-size: 40px;
+  letter-spacing: 1px;
+}
+
+.how-container {
+  width: 100%;
+  height: 400px;
+}
+
+.how-item-container {
+  width: 100%;
+  height: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  float: left;
+  margin: 0 auto;
+}
+
+.how-item {
+  width: 25%;
+  height: 275px;
+  text-align: center;
+  padding: 20px;
+}
+
+.how-item:nth-child(2), .how-item:nth-child(4) {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.how-item mat-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.how-item .how-header {
+  font-size: 24px;
+}
+
+.how-item .how-body {
+  font-size: 18px;
 }
 //#endregion

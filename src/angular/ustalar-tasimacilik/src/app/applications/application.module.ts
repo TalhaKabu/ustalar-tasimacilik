@@ -107,6 +107,13 @@ export class ApplicationModule {
         'assets/svgs/furniture-filled.svg'
       )
     );
+
+    this.matIconRegistry.addSvgIcon(
+      'package_filled_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/package-filled.svg'
+      )
+    );
     //#endregion
 
     //#region navbar

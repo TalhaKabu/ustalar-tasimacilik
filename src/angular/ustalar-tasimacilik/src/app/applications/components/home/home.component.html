@@ -30,5 +30,26 @@
         </div>
       </div>
     </div>
+    <hr class="solid">
+    <div class="doing-container">
+      <div class="header">
+        <h2><strong>Nasıl Yapıyoruz?</strong></h2>
+      </div>
+      <div class="how-container">
+        <div class="how-item-container">
+          <div class="how-item" *ngFor="let howItem of howItems">
+            <div class="how-icon">
+              <mat-icon [svgIcon]="howItem.icon"></mat-icon>
+            </div>
+            <div class="how-header">
+              <h4>{{ howItem.name }}</h4>
+            </div>
+            <div class="how-body">
+              <p>{{ howItem.body }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </div>
