@@ -67,30 +67,44 @@ export class ApplicationModule {
   ) {
     //#region Home
     this.matIconRegistry.addSvgIcon(
-      'truck_icon',
+      'home_icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/truck_icon.svg'
+        'assets/svgs/home.svg'
       )
     );
 
     this.matIconRegistry.addSvgIcon(
-      'package_icon',
+      'home_filled_icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/package_icon.svg'
+        'assets/svgs/home-filled.svg'
       )
     );
 
     this.matIconRegistry.addSvgIcon(
-      'persons_icon',
+      'building_icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/persons_icon.svg'
+        'assets/svgs/building.svg'
       )
     );
 
     this.matIconRegistry.addSvgIcon(
-      'insurance_icon',
+      'building_filled_icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/insurance_icon.svg'
+        'assets/svgs/building-filled.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'furniture_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/furniture.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'furniture_filled_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/furniture-filled.svg'
       )
     );
     //#endregion

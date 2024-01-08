@@ -1,74 +1,72 @@
-import { Component, HostBinding, Input } from '@angular/core';
-import { ItemDto } from './home';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
-  transportationType: string = 'Evden Eve';
-  transportationTypes: string[] = [
-    'Evden Eve',
-    'Şehirler Arası',
-    'Şehir İçi',
-    'Parçalı',
-    'Asansörlü',
-  ];
-  lastTransportationTypeId: number = 0;
-  private intervalId: any;
-
-  @HostBinding('style.--windowWidth')
-  @Input()
-  windowWidth: string = '0 px';
-
-  servicesItems: ItemDto[] = [];
-  skillItems: ItemDto[] = [];
+export class HomeComponent implements OnInit {
+  servicesItems: { id: number; name: string; icon: string }[] = [];
 
   ngOnInit(): void {
-    if (window.innerWidth > 1920) this.windowWidth = 1920 + 'px';
-    else this.windowWidth = window.innerWidth + 'px';
-
-    this.intervalId = setInterval(() => {
-      if (this.lastTransportationTypeId + 1 < this.transportationTypes.length) {
-        this.lastTransportationTypeId++;
-      } else {
-        this.lastTransportationTypeId = 0;
-      }
-      this.transportationType =
-        this.transportationTypes[this.lastTransportationTypeId];
-    }, 3000);
-
-    this.servicesItems.push({
-      header: 'Evden Eve Nakliyat',
-      body:
-        'Firmamız Bursa evden eve nakliye sektörünün en çok tercih edilen ve' +
-        'en güvenilen firmalarından bir tanesi olarak sizlere kusursuz taşıma' +
-        'hizmetlerini en uygun fiyatlar ile sunmaktadır',
-      image: '',
-    });
-
-    this.skillItems.push(
+    this.servicesItems.push(
       {
-        header: 'NAKLİYE ARAÇLARI',
-        body: 'Özel tasarlanmış farklı boyutlarda taşıma araçlarımız',
-        image: 'truck_icon',
+        id: 0,
+        name: 'Evden Eve Nakliyat',
+        icon: 'home_icon',
       },
       {
-        header: 'EŞYA PAKETLEME',
-        body: 'Kaliteli malzemelerle her eşyaya uygun ambalaj ve paketleme',
-        image: 'package_icon',
+        id: 1,
+        name: 'Ofiş Taşımacılığı',
+        icon: 'building_icon',
       },
       {
-        header: 'TECRÜBELİ PERSONEL',
-        body: 'Uzun yıllar nakliye sektöründe hizmet etmiş profesyonel ekip',
-        image: 'persons_icon',
-      },
-      {
-        header: 'SİGORTALI TAŞIMACILIK',
-        body: 'Taşıma işlemi öncesinde tüm eşyalarınız sigortalanarak taşınır',
-        image: 'insurance_icon',
+        id: 2,
+        name: 'Parça Eşya Taşımacılığı',
+        icon: 'furniture_icon',
       }
     );
+  }
+
+  onMouseEnter(id: number) {
+    var service = this.servicesItems.find((x) => x.id == id);
+    switch (id) {
+      case 0: {
+        service!.icon = 'home_filled_icon';
+        break;
+      }
+      case 1: {
+        service!.icon = 'building_filled_icon';
+        break;
+      }
+      case 2: {
+        service!.icon = 'furniture_filled_icon';
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  }
+
+  onMouseLeave(id: number) {
+    var service = this.servicesItems.find((x) => x.id == id);
+    switch (id) {
+      case 0: {
+        service!.icon = 'home_icon';
+        break;
+      }
+      case 1: {
+        service!.icon = 'building_icon';
+        break;
+      }
+      case 2: {
+        service!.icon = 'furniture_icon';
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   }
 }

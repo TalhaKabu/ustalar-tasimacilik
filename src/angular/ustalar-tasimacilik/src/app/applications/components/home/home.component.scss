@@ -1,219 +1,114 @@
-@import "/src/theme";
-
-//#region Skill
-
-$skill-grid-item-container-height: 200px;
-
-.skill-grid-list-container {
-  display: grid;
-  grid-template-columns: repeat(
-    2,
-    1fr
-  ); /* Adjust the number of columns as needed */
-  grid-gap: 20px; /* Adjust the gap between items as needed */
+.container {
+  width: 100%;
+  height: auto;
+  margin-top: 100px;
 }
 
-/* Define the grid items */
-.skill-grid-item-container {
-  position: relative;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  padding: 20px;
-  text-align: center;
-  font-size: 18px;
-  height: $skill-grid-item-container-height;
+.gen-container {
+  max-width: 1366px;
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
 
-/* Define styles for specific items if needed */
-.skill-grid-item-container:nth-child(odd) {
-  background-color: #e0e0e0;
+//#region Offer
+.offer-container {
+  width: 100%;
 }
 
-/* Responsive layout */
-@media (max-width: 768px) {
-  .skill-grid-list-container {
-    grid-template-columns: repeat(1, 1fr); /* Adjust for smaller screens */
+.offer-span {
+  width: calc(90% - 290px);
+  font-family: HNDRegular, Roboto, Arial, sans-serif !important;
+}
+
+@media (max-width: 720px) {
+  .offer-span {
+    width: 100%;
   }
 }
 
-$skill-icon-size: 65px;
-
-mat-icon {
-  height: $skill-icon-size;
-  width: $skill-icon-size;
-  color: map_get($custom-warn, 700) !important;
+.offer-span h2 span {
+  color: red;
 }
 
-.material-symbols {
-  font-size: $skill-icon-size;
-  font-variation-settings: "FILL" 1, "wght" 100, "GRAD" -25, "opsz" 48;
-}
-
-.skill-icon {
-  position: absolute;
-  top: 15px;
-  left: 0;
-  right: 0;
-  height: $skill-icon-size;
-  text-align: center;
-}
-
-.skill-header {
-  position: absolute;
-  left: -0;
-  top: 80px;
-  color: black;
+.offer-span h2 {
   width: 100%;
-  height: 50px;
-  // background-color: map_get($custom-accent, 500);
-  font-size: 25px;
+  font-size: 54px;
+  font-weight: 700;
 }
 
-.skill-header-background {
-  left: -20px;
-  top: 105px;
-  position: absolute;
-  left: -20px;
-  width: calc(100% + 40px);
-  height: 20px;
-  background-color: map_get($custom-accent, 500);
+.offer-span h2,
+.offer-span p {
+  display: block;
+  text-align: left;
+  transition: 0.3s;
 }
 
-.skill-body {
-  position: absolute;
-  top: 140px;
-  left: 40px;
-  right: 40px;
-  font-size: 15px;
-  text-align: center;
-  color: map_get($custom-primary, 600);
+.Hndmfont,
+.Hndrfont {
+  letter-spacing: 1.5px;
 }
 
-h1 {
-  margin: 0;
-}
-//#endregion
-
-//#region Services
-.service-grid-list-container {
-  display: grid;
-  margin-top: 30px;
-  grid-template-columns: repeat(
-    2,
-    1fr
-  ); /* Adjust the number of columns as needed */
-  grid-gap: 20px; /* Adjust the gap between items as needed */
+.offer-span p {
+  font-size: 24px;
 }
 
-/* Define the grid items */
-.service-grid-item-container {
-  position: relative;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  padding: 20px;
-  text-align: center;
-  font-size: 18px;
-  height: 300px;
-}
-
-/* Define styles for specific items if needed */
-.service-grid-item-container:nth-child(odd) {
-  background-color: #e0e0e0;
-}
-
-/* Responsive layout */
-@media (max-width: 768px) {
-  .service-grid-list-container {
-    grid-template-columns: repeat(1, 1fr); /* Adjust for smaller screens */
-  }
-}
-
-.services-header {
-  position: absolute;
-  top: 20px;
-  left: auto;
-  right: auto;
-  color: black;
-}
-
-.services-body {
-  position: absolute;
-  top: 80px;
-  left: 25px;
-  right: 25px;
-  text-align: justify;
-  color: map_get($custom-primary, 600);
-}
-
-.service-button {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-}
-
-.information-button {
-  width: 100%;
-  background-color: map_get($custom-warn, 500);
+.offer-button {
+  font-size: 150%;
+  padding: 30px;
+  margin: 20px auto 0 15%;
+  background-color: orange;
   color: white;
 }
-
-.information-icon {
-  color: white !important;
-}
 //#endregion
 
-//#region Header
-.header-text-container {
-  position: relative;
-  z-index: 3;
-  color: black;
+//#region Hizmetler
+.services-container {
+  width: 100%;
+  margin-top: 200px;
+}
+
+.services-inner {
+  height: 225px;
+  width: 100%;
+  font-family: HNDRegular, Roboto, Arial, sans-serif !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.services-item {
+  display: flex;
+  float: left;
+  width: 25%;
+  height: 200px;
   text-align: center;
-  height: calc(3072 * var(--windowWidth) / 4608 - 2rem);
-  margin-bottom: 30px;
-  font-size: 20px;
-
-  @media screen and (min-width: 1080px) {
-    font-size: 90px;
-  }
+  flex-direction: column;
+  margin: auto 0;
 }
 
-.transportationType {
-  color: map_get($custom-accent, 500);
-  font-size: 50px;
-
-  @media screen and (min-width: 1080px) {
-    font-size: 125px;
-  }
+.services-item mat-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: .5s;
 }
 
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+.icon-container {
+  display: flex;
+  align-items: center;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  border: 1px solid gray;
+  border-radius: 100%;
 }
 
-/* Apply the animation to a text element */
-.text-animation {
-  animation: fade 3s ease-in-out infinite;
+.icon-container:hover {
+  border: 1px solid orange;
 }
 
-.transportation-truck {
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)),
-    url("../../../../assets/jpgs/transportation-truck.jpg");
-  background-size: cover;
-  background-repeat: no-repeat; /* Prevents image repetition */
-  width: var(--windowWidth);
-  height: calc(3072 * var(--windowWidth) / 4608 + 2px);
-  /* Add more styling as needed */
+.services-item h3 {
+  margin: auto;
+  letter-spacing: 1.5px;
 }
 //#endregion

@@ -18,8 +18,6 @@ mat-sidenav-container {
 
 .router-outlet {
   position: relative;
-  max-width: 1920px;
-  margin: 0 auto;
 }
 
 mat-sidenav {
@@ -27,7 +25,6 @@ mat-sidenav {
   min-width: 250px;
   max-width: 350px;
   background-color: map_get($custom-primary, main);
-
   height: calc(var(--windowHeight) - var(--toolbarHeight)) !important;
   position: fixed;
   z-index: 999;
@@ -66,7 +63,7 @@ mat-list-item {
 }
 
 .custom-icon {
-  background-image: url("../../../../assets/pngs/logo.png"); /* Adjust the path to your PNG icon */
+  // background-image: url("../../../../assets/pngs/logo.png"); /* Adjust the path to your PNG icon */
   background-size: contain; /* Adjust as needed */
   width: 75px; /* Set the width and height to match your icon size */
   height: 75px;
