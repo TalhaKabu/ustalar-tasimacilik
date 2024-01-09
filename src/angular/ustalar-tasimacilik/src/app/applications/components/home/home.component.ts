@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
         icon: 'furniture_icon',
       },
       {
-        id: 1,
+        id: 3,
         name: 'Ofiş Taşımacılığı',
         icon: 'building_icon',
       },
@@ -41,17 +41,17 @@ export class HomeComponent implements OnInit {
         body: 'Kaliteli malzemelerle her eşyaya uygun ambalaj ve paketleme',
       },
       {
-        icon: 'package_filled_icon',
+        icon: 'worker_filled_icon',
         name: 'Tecrübeli Personel',
         body: 'Uzun yıllar nakliye sektöründe hizmet etmiş profesyonel ekip',
       },
       {
-        icon: 'package_filled_icon',
+        icon: 'truck_filled_icon',
         name: 'Nakliye Araçları',
         body: 'Sağlam, kaliteli nakliye araçları',
       },
       {
-        icon: 'package_filled_icon',
+        icon: 'insurance_filled_icon',
         name: 'Sigortalı Nakliyat',
         body: 'Taşıma işlemi öncesinde tüm eşyalarınız sigortalanarak taşınır',
       }
@@ -73,6 +73,10 @@ export class HomeComponent implements OnInit {
         service!.icon = 'furniture_filled_icon';
         break;
       }
+      case 3: {
+        service!.icon = 'building_filled_icon';
+        break;
+      }
       default: {
         break;
       }
@@ -92,6 +96,10 @@ export class HomeComponent implements OnInit {
       }
       case 2: {
         service!.icon = 'furniture_icon';
+        break;
+      }
+      case 3: {
+        service!.icon = 'building_icon';
         break;
       }
       default: {

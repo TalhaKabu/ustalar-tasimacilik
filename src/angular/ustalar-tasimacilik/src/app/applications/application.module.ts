@@ -114,6 +114,27 @@ export class ApplicationModule {
         'assets/svgs/package-filled.svg'
       )
     );
+
+    this.matIconRegistry.addSvgIcon(
+      'worker_filled_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/worker-filled.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'truck_filled_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/truck-filled.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'insurance_filled_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/insurance-filled.svg'
+      )
+    );
     //#endregion
 
     //#region navbar

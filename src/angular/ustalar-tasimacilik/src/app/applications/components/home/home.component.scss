@@ -124,6 +124,7 @@
 .header h2 {
   font-size: 40px;
   letter-spacing: 1px;
+  margin-left: 20px;
 }
 
 .how-container {
@@ -154,12 +155,22 @@
 }
 
 .how-item mat-icon {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
 }
 
 .how-item .how-header {
   font-size: 24px;
+  margin: 5px auto;
+}
+
+.how-item .how-header h4 {
+  margin: 10px auto;
+}
+
+
+.how-item .how-body p {
+  margin: 10px auto;
 }
 
 .how-item .how-body {
