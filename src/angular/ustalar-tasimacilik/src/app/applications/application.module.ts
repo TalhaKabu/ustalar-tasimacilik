@@ -135,6 +135,21 @@ export class ApplicationModule {
         'assets/svgs/insurance-filled.svg'
       )
     );
+
+    
+    this.matIconRegistry.addSvgIcon(
+      'motor_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/motor.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'motor_filled_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/motor-filled.svg'
+      )
+    );
     //#endregion
 
     //#region navbar

@@ -29,8 +29,8 @@ export class HomeComponent implements OnInit {
       },
       {
         id: 3,
-        name: 'Ofiş Taşımacılığı',
-        icon: 'building_icon',
+        name: 'Araç nakliyatı',
+        icon: 'motor_icon',
       },
     );
 
@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
         break;
       }
       case 3: {
-        service!.icon = 'building_filled_icon';
+        service!.icon = 'motor_filled_icon';
         break;
       }
       default: {
@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit {
         break;
       }
       case 3: {
-        service!.icon = 'building_icon';
+        service!.icon = 'motor_icon';
         break;
       }
       default: {
