@@ -1,4 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +19,9 @@ export class NavbarComponent {
   @HostBinding('style.--windowHeight')
   @Input()
   windowHeight: string = '0px';
+
+  constructor(public router: Router) {
+  }
 
   ngOnInit(): void {
     this.windowHeight = window.innerHeight + 'px';

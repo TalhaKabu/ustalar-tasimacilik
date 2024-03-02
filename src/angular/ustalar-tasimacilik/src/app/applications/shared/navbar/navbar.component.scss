@@ -1,92 +1,109 @@
 @import "/src/theme";
 
-$toolbar-height: 70px;
-
 mat-toolbar {
   position: fixed;
   z-index: 1000;
   top: 0;
-  height: var(--toolbarHeight);
+  height: 60px;
+  min-height: 60px;
   justify-content: center;
 }
 
-mat-sidenav-container {
-  background-color: map_get($custom-accent, third);
-  top: var(--toolbarHeight);
-  min-height: 100vh;
+mat-toolbar-row {
+  padding: 0;
 }
 
 .router-outlet {
   position: relative;
+  top: 60px;
 }
 
-mat-sidenav {
-  width: auto;
-  min-width: 250px;
-  max-width: 350px;
-  background-color: map_get($custom-primary, main);
-  height: calc(var(--windowHeight) - var(--toolbarHeight)) !important;
-  position: fixed;
-  z-index: 999;
-  top: var(--toolbarHeight);
+.menu-button {
+  letter-spacing: 2px;
+  font-size: 16px;
+  height: 60px;
+  margin-left: 10px;
 }
 
-mat-list {
-  display: flex;
-  flex-direction: column;
-  padding: 8px 0 8px 0;
-  height: calc(100% - 16px);
-}
-
-mat-list-item {
-  text-align: center;
-}
-
-.list-button {
-  width: 100%;
-  justify-content: start;
-}
-
-.list-icon-button {
-  width: auto;
-  justify-content: center;
-  align-items: center;
-}
-
-.offer-button {
-  background-color: map-get($custom-accent, 600);
-  color: map_get($custom-primary, 900) !important;
+.menu-button:hover {
+  background-color: map_get($custom-primary, second) !important;
+  color: map_get($custom-accent, main) !important;
+  border-radius: 0;
 }
 
 .example-spacer {
   flex: 1 1 auto;
 }
 
-.custom-icon {
-  // background-image: url("../../../../assets/pngs/logo.png"); /* Adjust the path to your PNG icon */
-  background-size: contain; /* Adjust as needed */
-  width: 75px; /* Set the width and height to match your icon size */
-  height: 75px;
-  display: inline-block;
-}
+// mat-sidenav-container {
+//   background-color: map_get($custom-accent, third);
+//   top: var(--toolbarHeight);
+//   min-height: 100vh;
+// }
 
-.menu-button {
-  transition: transform 3s ease-in-out;
-}
+// mat-sidenav {
+//   width: auto;
+//   min-width: 250px;
+//   max-width: 350px;
+//   background-color: map_get($custom-primary, main);
+//   height: calc(var(--windowHeight) - var(--toolbarHeight)) !important;
+//   position: fixed;
+//   z-index: 999;
+//   top: var(--toolbarHeight);
+// }
 
-.menu-button:hover {
-  transform: scale(1.2);
-}
+// mat-list {
+//   display: flex;
+//   flex-direction: column;
+//   padding: 8px 0 8px 0;
+//   height: calc(100% - 16px);
+// }
 
-//#region whatsapp
-.fixed-icon {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  bottom: 16px; /* Adjust as needed for vertical position */
-  right: 16px; /* Adjust as needed for horizontal position */
-  z-index: 1000;
-  cursor: pointer;
-  display: var(--fixedWhatsappDisplay);
-}
-//#endregion
+// mat-list-item {
+//   text-align: center;
+// }
+
+// .list-button {
+//   width: 100%;
+//   justify-content: start;
+// }
+
+// .list-icon-button {
+//   width: auto;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .offer-button {
+//   background-color: map-get($custom-accent, 600);
+//   color: map_get($custom-primary, 900) !important;
+// }
+
+// .custom-icon {
+//   // background-image: url("../../../../assets/pngs/logo.png"); /* Adjust the path to your PNG icon */
+//   background-size: contain; /* Adjust as needed */
+//   width: 75px; /* Set the width and height to match your icon size */
+//   height: 75px;
+//   display: inline-block;
+// }
+
+// .menu-button {
+//   transition: transform 3s ease-in-out;
+// }
+
+// .menu-button:hover {
+//   transform: scale(1.2);
+// }
+
+// //#region whatsapp
+// .fixed-icon {
+//   position: fixed;
+//   width: 50px;
+//   height: 50px;
+//   bottom: 16px; /* Adjust as needed for vertical position */
+//   right: 16px; /* Adjust as needed for horizontal position */
+//   z-index: 1000;
+//   cursor: pointer;
+//   display: var(--fixedWhatsappDisplay);
+// }
+// //#endregion

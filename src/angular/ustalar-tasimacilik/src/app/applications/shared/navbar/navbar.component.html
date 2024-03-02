@@ -1,22 +1,16 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <!-- <mat-icon class="custom-icon"></mat-icon> -->
-    <button
-      class="menu-button"
-      mat-icon-button
-      (click)="sidebarVisible = !sidebarVisible"
-    >
-      <mat-icon>{{ sidebarVisible ? "close" : "menu" }} </mat-icon>
+<mat-toolbar color="primary" style="align-items: center">
+  <mat-toolbar-row style="max-width: 1366px">
+    <button class="menu-button" mat-button style="margin-left: 0" (click)="this.router.navigate([''])">
+      Ana Sayfa
     </button>
+    <button class="menu-button" mat-button >Hakkımızda</button>
+    <button class="menu-button" mat-button (click)="this.router.navigate(['contact'])">İletişim</button>
     <span class="example-spacer"></span>
-    <!-- <button mat-button class="offer-button">
-      <mat-icon>edit</mat-icon>TEKLİF AL
-    </button> -->
     <span mat-card-title>Ustalar Taşımacılık</span>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav
+  <!-- <mat-sidenav
     [(opened)]="sidebarVisible"
     (openedChange)="onOpenedChange()"
     mode="over"
@@ -69,9 +63,8 @@
         </button>
       </mat-list-item>
     </mat-list>
-  </mat-sidenav>
+  </mat-sidenav> -->
   <mat-sidenav-content>
-    <!-- <mat-icon class="fixed-icon" svgIcon="fixed_whatsapp_icon"></mat-icon> -->
     <div class="router-outlet">
       <router-outlet></router-outlet>
     </div>
