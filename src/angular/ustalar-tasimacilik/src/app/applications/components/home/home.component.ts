@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
       {
         id: 1,
         name: 'Ofiş Taşımacılığı',
-        icon: 'building_icon',
+        icon: 'office_icon',
       },
       {
         id: 2,
@@ -32,18 +32,23 @@ export class HomeComponent implements OnInit {
         name: 'Araç nakliyatı',
         icon: 'motor_icon',
       },
+      {
+        id: 4,
+        name: 'Eşya Depolama',
+        icon: 'warehouse_icon',
+      },
     );
 
     this.howItems.push(
       {
         icon: 'package_filled_icon',
         name: 'Eşya Paketleme',
-        body: 'Kaliteli malzemelerle her eşyaya uygun ambalaj ve paketleme',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor nulla nulla, facilisis facilisis sapien convallis ut. Sed a facilisis dolor. Etiam rhoncus scelerisque justo eu convallis. Mauris eget ultrices quam. Maecenas magna velit, semper sit amet est nec, elementum varius lectus.',
       },
       {
         icon: 'worker_filled_icon',
         name: 'Tecrübeli Personel',
-        body: 'Uzun yıllar nakliye sektöründe hizmet etmiş profesyonel ekip',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor nulla nulla, facilisis facilisis sapien convallis ut. Sed a facilisis dolor. Etiam rhoncus scelerisque justo eu convallis. Mauris eget ultrices quam. Maecenas magna velit, semper sit amet est nec, elementum varius lectus.',
       },
       {
         icon: 'truck_filled_icon',
@@ -66,7 +71,7 @@ export class HomeComponent implements OnInit {
         break;
       }
       case 1: {
-        service!.icon = 'building_filled_icon';
+        service!.icon = 'office_filled_icon';
         break;
       }
       case 2: {
@@ -75,6 +80,10 @@ export class HomeComponent implements OnInit {
       }
       case 3: {
         service!.icon = 'motor_filled_icon';
+        break;
+      }
+      case 4: {
+        service!.icon = 'warehouse_filled_icon';
         break;
       }
       default: {
@@ -91,7 +100,7 @@ export class HomeComponent implements OnInit {
         break;
       }
       case 1: {
-        service!.icon = 'building_icon';
+        service!.icon = 'office_icon';
         break;
       }
       case 2: {
@@ -100,6 +109,10 @@ export class HomeComponent implements OnInit {
       }
       case 3: {
         service!.icon = 'motor_icon';
+        break;
+      }
+      case 4: {
+        service!.icon = 'warehouse_icon';
         break;
       }
       default: {

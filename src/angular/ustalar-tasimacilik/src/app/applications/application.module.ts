@@ -81,16 +81,16 @@ export class ApplicationModule {
     );
 
     this.matIconRegistry.addSvgIcon(
-      'building_icon',
+      'office_icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/building.svg'
+        'assets/svgs/office.svg'
       )
     );
 
     this.matIconRegistry.addSvgIcon(
-      'building_filled_icon',
+      'office_filled_icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/building-filled.svg'
+        'assets/svgs/office-filled.svg'
       )
     );
 
@@ -148,6 +148,20 @@ export class ApplicationModule {
       'motor_filled_icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(
         'assets/svgs/motor-filled.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'warehouse_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/warehouse.svg'
+      )
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      'warehouse_filled_icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/svgs/warehouse-filled.svg'
       )
     );
     //#endregion

@@ -4,20 +4,19 @@
   width: 100%;
   max-width: 100%;
   height: auto;
-  // background-color: map_get($custom-primary, main  );
-  font-family: HNDRegular, Roboto, Arial, sans-serif !important;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
 }
 
 .gen-container {
   max-width: 1366px;
-  margin: 0  auto;
+  margin: 0 auto;
 }
 
 .solid {
   border-top: 2px solid #bbb;
 }
 
-//#region img 
+//#region img
 .img-container {
   width: 25%;
   height: auto;
@@ -100,11 +99,18 @@
 .services-item {
   display: flex;
   float: left;
-  width: 25%;
+  width: 20%;
   height: 200px;
   text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: gray;
   flex-direction: column;
   margin: auto 0;
+}
+
+.services-item:hover {
+  color: black;
 }
 
 .services-item mat-icon {
@@ -113,6 +119,7 @@
   margin: 0 auto;
   cursor: pointer;
   transition: 0.5s;
+  background-image: url('../../../../assets/svgs/motor-filled.svg');
 }
 
 .icon-container {
@@ -132,7 +139,6 @@
 .services-item h3 {
   margin: auto;
   margin-top: 20px !important;
-  letter-spacing: 1.5px;
 }
 //#endregion
 
@@ -167,9 +173,11 @@
   height: 275px;
   text-align: center;
   padding: 20px;
+  letter-spacing: 2px;
 }
 
-.how-item:nth-child(2), .how-item:nth-child(4) {
+.how-item:nth-child(2),
+.how-item:nth-child(4) {
   margin-top: auto;
   margin-bottom: 0;
 }
@@ -188,12 +196,28 @@
   margin: 10px auto;
 }
 
-
 .how-item .how-body p {
   margin: 10px auto;
 }
 
 .how-item .how-body {
-  font-size: 18px;
+  font-size: 14px;
+}
+//#endregion
+
+//#region aboutus
+.aboutus-container {
+  width: 100%;
+}
+
+.header  {
+  font-size: 40px;
+  letter-spacing: 1px;
+  margin-left: 20px;
+}
+
+.aboutus-container .body {
+  max-width: 500px;
+  margin-left: 20px;
 }
 //#endregion
