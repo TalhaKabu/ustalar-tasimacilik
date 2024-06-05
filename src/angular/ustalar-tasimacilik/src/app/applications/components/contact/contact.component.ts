@@ -129,7 +129,8 @@ export class ContactComponent {
         inputValue: new FormControl('', [Validators.required]),
         placeHolder: 'Telefon numaranızı giriniz',
         icon: 'phone-filled-icon',
-        type: 'number',
+        type: 'tel',
+        mask: true,
         prefix: true,
         isFocused: false,
       }

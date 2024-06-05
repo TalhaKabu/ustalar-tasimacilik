@@ -41,7 +41,7 @@
             (focus)="onInputFocus(input.labelName)"
             (blur)="onInputBlur(input.labelName)"
             [formControl]="input.inputValue"
-            mask="(000) 000 00 00"
+            [mask]="input.mask ? '(000) 000 00 00' : ''"
             required
           />
           <mat-error *ngIf="input.inputValue.hasError('required')">

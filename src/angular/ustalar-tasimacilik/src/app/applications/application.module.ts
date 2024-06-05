@@ -19,6 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -55,9 +56,11 @@ import { DatePipe } from '@angular/common';
     MatNativeDateModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
   ],
   exports: [NavbarComponent],
-  providers: [DatePipe],
+  providers: [DatePipe, provideNgxMask()],
   bootstrap: [],
 })
 export class ApplicationModule {
@@ -68,9 +71,7 @@ export class ApplicationModule {
     //#region Home
     this.matIconRegistry.addSvgIcon(
       'home_icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/home.svg'
-      )
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svgs/home.svg')
     );
 
     this.matIconRegistry.addSvgIcon(
@@ -82,9 +83,7 @@ export class ApplicationModule {
 
     this.matIconRegistry.addSvgIcon(
       'office_icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/office.svg'
-      )
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svgs/office.svg')
     );
 
     this.matIconRegistry.addSvgIcon(
@@ -136,12 +135,9 @@ export class ApplicationModule {
       )
     );
 
-    
     this.matIconRegistry.addSvgIcon(
       'motor_icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        'assets/svgs/motor.svg'
-      )
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svgs/motor.svg')
     );
 
     this.matIconRegistry.addSvgIcon(
