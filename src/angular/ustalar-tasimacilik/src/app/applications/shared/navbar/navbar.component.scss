@@ -1,4 +1,5 @@
 @import "/src/theme";
+@import url('https://fonts.googleapis.com/css2?family=Foldit:wght@100..900&display=swap');
 
 mat-toolbar {
   position: fixed;
@@ -7,6 +8,11 @@ mat-toolbar {
   height: 60px;
   min-height: 60px;
   justify-content: center;
+}
+
+.title {
+  font-family: 'Foldit', sans-serif;
+  font-size: 30px;
 }
 
 mat-toolbar-row {
