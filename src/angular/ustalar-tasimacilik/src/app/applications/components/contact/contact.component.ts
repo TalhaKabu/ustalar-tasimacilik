@@ -129,7 +129,8 @@ export class ContactComponent {
         inputValue: new FormControl('', [Validators.required]),
         placeHolder: 'Telefon numaranızı giriniz',
         icon: 'phone-filled-icon',
-        type: 'tel',
+        type: 'number',
+        prefix: true,
         isFocused: false,
       }
     );
@@ -149,6 +150,14 @@ export class ContactComponent {
       },
       {
         value: 4,
+        labelName: 'Araç Nakliyatı',
+      },
+      {
+        value: 5,
+        labelName: 'Eşya depolama',
+      },
+      {
+        value: 6,
         labelName: 'Diğer',
       }
     );

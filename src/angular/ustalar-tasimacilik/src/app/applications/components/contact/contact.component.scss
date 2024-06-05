@@ -115,4 +115,8 @@ input:-webkit-autofill:active {
   border: 1px solid map_get($custom-primary, main);
   border-radius: 5px;
 }
+
+input[type="tel"] {
+  width: calc(100% - 24px); /* Adjust width to account for prefix */
+}
 //#endregion
