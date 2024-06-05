@@ -52,7 +52,7 @@ export class ContactComponent {
   fromCity: string = '';
 
   date: string = new Date().toISOString();
-  time: string = new Date().getHours() + ':' + new Date().getMinutes();
+  // time: string = new Date().getHours() + ':' + new Date().getMinutes();
 
   doc: Document = document;
 
@@ -304,7 +304,7 @@ export class ContactComponent {
     this.finalModel.toAddress = this.toAdress;
     this.finalModel.toCity = this.toCity;
     this.finalModel.date = this.datePipe.transform(this.date, 'dd.MM.yyyy');
-    this.finalModel.time = this.time;
+    // this.finalModel.time = this.time;
     this.finalModel.details = this.details;
   }
 }

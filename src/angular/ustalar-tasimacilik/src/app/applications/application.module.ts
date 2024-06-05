@@ -20,6 +20,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -60,7 +61,7 @@ import { DatePipe } from '@angular/common';
     NgxMaskPipe,
   ],
   exports: [NavbarComponent],
-  providers: [DatePipe, provideNgxMask()],
+  providers: [DatePipe, provideNgxMask(), { provide: MAT_DATE_LOCALE, useValue: 'tr-TR' }],
   bootstrap: [],
 })
 export class ApplicationModule {
